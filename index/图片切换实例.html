@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片切换实例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background: #333;
+        }
+        .wrap {
+            width: 400px;
+            height: 500px;
+            margin: 20px auto;
+            position: relative;
+        }
+        img {
+            width: 400px;
+            height: 500px;
+
+        }
+        ul {
+            position: absolute;
+            top: 0;
+            right: -38px;
+            background: #414141;
+            width: 30px;
+        }
+        .wrap li {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #222;
+            cursor: pointer;
+        }
+        span,p {
+            position: absolute;
+            left: 0;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: rgba(255,255,255,.6);
+            background: rgba(0,0,0,.6);
+        }
+        span {
+            top: 0;
+        }
+        p {
+            bottom: 0;
+        }
+        .active {
+            background: #fc0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oImg = document.getElementById('img');
+            var oP = document.getElementById('p');
+            var oSpan = document.getElementById('span');
+            var oUl = document.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+
+            var arrUrl = ['../images/1.png','../images/2.png','../images/3.png','../images/4.png'];
+            var arrText = ['图片一','图片二','图片三','图片四'];
+            var num = 0;
+//            var oldLi = null;
+
+            for( var i=0; i<arrText.length; i++ ){
+                oUl.innerHTML += '<li></li>';
+            }
+//            oldLi = aLi[num];
+
+            function changeImg(){
+                oImg.src = arrUrl[num];
+                oP.innerHTML = arrText[num];
+                oSpan.innerHTML = 1 + num + '/' + arrText.length;
+                for( var i=0; i<aLi.length; i++ ){
+                    aLi[i].className = '';
+                }
+                aLi[num].className = 'active';
+            }
+            changeImg();
+
+            for( var i=0; i<aLi.length; i++ ){
+                aLi[i].index = i;
+                aLi[i].onclick = function(){
+                    num = this.index;
+                    /*oImg.src = arrUrl[num];
+                    oP.innerHTML = arrText[num];
+                    oSpan.innerHTML = 1 + num + '/' + arrText.length;
+                    for( var i=0; i<aLi.length; i++ ){
+                        aLi[i].className = '';
+                    }
+                    aLi[num].className = 'active';*/
+                    changeImg();
+
+                    /*//思路二：清空上个，当前添加
+                    oldLi.className = '';
+                    oldLi = this;
+                    this.className = 'active';*/
+                };
+
+            }
+
+            setInterval(function(){
+                changeImg();
+            },1000)
+
+        };
+    </script>
+</head>
+<body>
+
+<div class="wrap">
+    <img src="" id="img">
+    <span id="span">数量正在加载中...</span>
+    <p id="p">图片正在加载中...</p>
+    <ul></ul>
+</div>
+
+</body>
+</html>

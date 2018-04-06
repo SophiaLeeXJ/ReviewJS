@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>成员函数-公开与私有</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function Person(){
+            this.name = 'Elizabeth';
+            this.age = 22;
+            this.abc = function(v1,v2){
+                alert( this.name + ' ' + this.age + ' ' + v1 + ' ' + v2 );
+            }
+        }
+        var person1 = new Person();
+        person1.name = 'Anastasia';
+        person1.abc('北京','天津'); //Anastasia 22 北京 天津
+        var person2 = new Person();
+        person2.abc('南京','上海'); //Elizabeth 22 南京 上海
+    };
+</script>
+
+</body>
+</html>

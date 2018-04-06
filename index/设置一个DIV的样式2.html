@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>改变DIV的样式</title>
+    <style>
+        div,input,p,span {
+            margin: 0;
+            padding: 0;
+        }
+        .wrap {
+            padding: 10px 30px;
+        }
+        h1 {
+            display: inline-block;
+            font-size: 28px;
+        }
+        #btn {
+            padding: 8px 16px;
+            font-size: 20px;
+            background: #f01400;
+            border: none;
+            color: #fff;
+            font-weight: 700;
+        }
+        #btn:hover {
+            cursor: pointer;
+        }
+        .setting_div {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #000;
+        }
+        .setting {
+            width: 260px;
+            height: 200px;
+            padding: 30px;
+            border: 20px solid rgba(0,0,0,.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -135px;
+            margin-left: -180px;
+            z-index: 3;
+            background: #fff;
+            display: none;
+        }
+        .setting p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .setting p span {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            padding: 8px;
+            border: 1px solid #d1d1d1;
+            margin-right: 5px;
+        }
+        .setting p span:hover {
+            cursor: pointer;
+        }
+        .setting_btn input {
+            padding: 4px 8px;
+            font-size: 18px;
+            margin-top: 30px;
+            background: #002952;
+            color: #fff;
+            border: none;
+        }
+        .setting_btn input:nth-of-type(1){
+            margin-left: 60px;
+
+        }
+        .setting_btn input:nth-of-type(2){
+            margin-left: 30px;
+        }
+        .setting .color_btn span:nth-of-type(1){
+            background: #f00;
+        }
+        .setting .color_btn span:nth-of-type(2){
+            background: yellow;
+        }
+        .setting .color_btn span:nth-of-type(3){
+            background: blue;
+        }
+        .mask {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            display: none;
+        }
+        .setting .width_btn span,.height_btn span {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>请为下面的DIV设置样式：</h1>
+    <input type="button" id="btn" value="点我设置"/>
+    <div class="setting_div"></div>
+    <div class="mask"></div>
+    <div class="setting">
+        <p class="color_btn">请选择颜色：&nbsp;<span>红</span><span>黄</span><span>蓝</span></p>
+        <p class="width_btn">请选择宽(px)：<span>200</span><span>300</span><span>400</span></p>
+        <p class="height_btn">请选择高(px)：<span>200</span><span>300</span><span>400</span></p>
+        <p class="setting_btn">
+            <input type="button" id="return_btn" value="恢复"/>
+            <input type="button" id="sure_btn" value="确定"/>
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-2.2.2.js"></script>
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        $('#btn').click(function(){
+            $('.mask').css('display','block');
+            $('.setting').css('display','block');
+        });
+        $('.color_btn span:eq(0)').click(function(){
+            $('.setting_div').css('background','red');
+        });
+        $('.color_btn span:eq(1)').click(function(){
+            $('.setting_div').css('background','yellow');
+        });
+        $('.color_btn span:eq(2)').click(function(){
+            $('.setting_div').css('background','blue');
+        });
+        $('.width_btn span:eq(0)').click(function(){
+            $('.setting_div').css('width','200px');
+        });
+        $('.width_btn span:eq(1)').click(function(){
+            $('.setting_div').css('width','300px');
+        });
+        $('.width_btn span:eq(2)').click(function(){
+            $('.setting_div').css('width','400px');
+        });
+        $('.height_btn span:eq(0)').click(function(){
+            $('.setting_div').css('height','200px');
+        });
+        $('.height_btn span:eq(1)').click(function(){
+            $('.setting_div').css('height','300px');
+        });
+        $('.height_btn span:eq(2)').click(function(){
+            $('.setting_div').css('height','400px');
+        });
+        $('.return_btn').click(function(){
+            $('.setting_div').css('width','100px').css('height','100px');
+        });
+        $('#sure_btn').click(function(){
+            $('.mask').css('display','none');
+            $('.setting').css('display','none');
+        });
+        $('#return_btn').click(function(){
+            $('.setting_div').css('width','100px').css('height','100px').css('background','#fff');
+        });
+    };
+</script>
+
+</body>
+</html>

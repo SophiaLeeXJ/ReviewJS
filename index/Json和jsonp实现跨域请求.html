@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON和JSONP实现跨域请求</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    var localHandler = function(data){
+        alert(
+                '我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：' +
+                data.result );
+    }
+</script>
+<script type="text/javascript" src="../js/remote.js"></script>
+
+</body>
+</html>

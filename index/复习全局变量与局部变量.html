@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>复习全局变量与局部变量</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        var a = 1;
+        function fn1(a){
+            alert( a ); //undefined
+            a = 2;
+        }
+        fn1();
+        alert( a ); //1
+
+        var b = 3;
+        function fn2( b ){
+            alert( b ); //3
+            b = 4;
+        }
+        fn2( b );
+        alert( b );//3
+    };
+</script>
+
+</body>
+</html>

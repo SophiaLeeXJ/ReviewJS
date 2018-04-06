@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DIV显示隐藏之JS方法</title>
+    <style>
+        div,ul,li,a {
+            padding: 0;
+            margin: 0
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        #listOne {
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #ff99ff;
+            text-align: center;
+            border: 1px solid #000;
+            position: relative;
+        }
+        #listTow {
+            width: 80px;
+            background-color: lightseagreen;
+            text-align: center;
+            border: 1px solid #000;
+            position: absolute;
+            left: 0;
+            top: 30px;
+            display: none;
+        }
+        #listTow li {
+            background-color: #cfc;
+            margin: 2px;
+        }
+        #listTow li:hover {
+            background: #c90;
+        }
+        #listTow li:hover a {
+            color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <ul>
+        <li id="listOne">
+            <a href="javascript:void(0);">微博</a>
+            <ul id="listTow">
+                <li><a href="http://www.baidu.com">私信</a></li>
+                <li><a href="javascript:void(0);">评论</a></li>
+                <li><a href="javascript:void(0);">@我</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<script>
+    window.onload = function(){
+        var listOne = document.getElementById('listOne');
+        var listTwo = document.getElementById('listTow');
+
+        listOne.onmouseover = function(){
+            listTwo.style.display = 'block';
+        };
+        listOne.onmouseout = function(){
+            listTwo.style.display = 'none';
+        };
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS系统函数</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        /*//confirm函数
+        var oDele = document.getElementById('dele');
+        oDele.onclick = function(){
+            var res = confirm('确定要删除？');
+            if( res ){
+                alert('删除！')
+            }else{
+                alert('放弃删除！');
+            }
+        };*/
+
+        //setInterval()函数
+        /*setInterval(function(){
+            alert('Hello world!');
+        },1000);*/
+
+        /*function sayHello(){
+         alert('努力生活，是为了我们相遇的时候，你喜欢的样子我都有！');
+         }
+         setInterval(sayHello,1000);*/
+
+        //显示系统时间
+        function showTime(){
+            var mT = new Date();
+
+            var str = '';
+            var myYear = mT.getFullYear();
+            var myMon = mT.getMonth()+1;
+            var myDate = mT.getDate();
+            var mYWeek = mT.getDay();
+            var myHour = mT.getHours();
+            var myMin = mT.getMinutes();
+            var mySec = mT.getSeconds();
+
+            //星期最优方案
+            var week2 = '星期' + '日一二三四五六'.charAt( new Date().getDay() );
+            alert( week2 );
+
+            //星期优化方案
+            /*var week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var iWeek = week[mYWeek];*/
+            //alert( iWeek );
+
+            //星期原始方案
+            /*switch(mYWeek){
+                case 0:
+                    mYWeek = 'Sunday';
+                    break;
+                case 1:
+                    mYWeek = 'Monday';
+                    break;
+                case 2:
+                    mYWeek = 'Tuesday';
+                    break;
+                case 3:
+                    mYWeek = 'Wednesday';
+                    break;
+                case 4:
+                    mYWeek = 'Thursday';
+                    break;
+                case 5:
+                    mYWeek = 'Friday';
+                    break;
+                case 6:
+                    mYWeek = 'Saturday';
+                    break;
+            }*/
+            str = myYear + '年' + toTwo(myMon) + '月' + toTwo(myDate) + '日 ' + week2 + '  ' + toTwo(myHour) + '时' + toTwo(myMin) + '分' + toTwo(mySec) + '秒';
+
+            var oBody = document.body;
+            oBody.innerHTML = str;
+        }
+        setInterval( showTime,1000 );
+
+        showTime();
+
+        function toTwo(n){
+            return n<10 ? '0'+n : ''+n;
+        }
+
+        //星期最优方案
+        /*var str = '今天是星期' + '日一二三四五六'.charAt( new Date().getDay() );
+         alert( str );*/
+
+
+    };
+</script>
+<input type="button" value="删除" id="dele" />
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滚动监听</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 1000px;
+            height: 1200px;
+            margin: 0 auto;
+            background: #d1d1d1;
+        }
+        .wrap .pBox {
+            color: lightseagreen;
+            text-align: center;
+        }
+        .scrollBox {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            background: #0186ba;
+        }
+        .fixedBox {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="pBox">
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+        <p>努力生活，是为了我们在一起的时候，你喜欢的样子我都有！</p>
+    </div>
+    <div class="scrollBox"></div>
+</div>
+
+<script src="../js/jquery-2.2.2.js"></script>
+<script>
+    $(function(){
+        var $win = $(window);
+        var $doc = $(document);
+        var $scrollBox = $('.scrollBox');
+
+        $win.scroll(function(){
+            if( $doc.scrollTop() >= 120 ){
+                $scrollBox.addClass(".fixedBox");
+            }else{
+                $scrollBox.removeClass(".fixedBox");
+            }
+        });
+    });
+</script>
+</body>
+</html>

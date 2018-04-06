@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS中的正则表达式</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        var oBtn = document.getElementById('btn');
+        function test(){
+            var oContent = document.getElementById('content').innerHTML;
+            //隐式创建RegExp对象
+            //var re = /\d{4}/gi; //这是一个正则表达式对象，可以检索四个连续的数字
+            //显示创建RegExp对象
+            var re = new RegExp('\\d{4}','gi');//加转义字符\
+            while( res=re.exec(oContent) ){//res是检索出的结果，但是一个结果对应一个数组，该数组的res[0]就是找到的那个文本
+                alert( '找到' + res );
+            }
+
+            var myRe = /你喜欢的样子我都有！/g;
+            while( res2 = myRe.exec(oContent) ){
+                alert( res2 );
+            }
+        }
+        oBtn.onclick = test;
+    };
+</script>
+
+<div>
+    <p id="content">
+        努力生53012活，是为了在我5566们相遇的5时候，你喜欢的样子我都有！5631
+    </p>
+    <input type="button" value="Test" id="btn"/>
+</div>
+
+</body>
+</html>

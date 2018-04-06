@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>空心金字塔</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    var num = prompt('请输入一个数：');
+    for(var i=1; i<=num; i++){
+        for(var k=1; k<=num-i; k++){
+            document.writeln('&nbsp;');
+        }
+        for(var j=1; j<=(2*i-1); j++){
+            if(i == num){
+                document.writeln('*');
+            }else if(j == 1 || j == (2*i-1)){
+                document.writeln('*');
+            }else{
+                document.writeln('&nbsp;');
+            }
+        }
+        document.writeln('<br>');
+    }
+</script>
+
+</body>
+</html>

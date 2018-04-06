@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>九九乘法表</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    var n = prompt('请输入一个数：');
+    //打印行数
+    for(var i=1; i<=n; i++){
+        //打印列数
+        for(var j=1; j<=i; j++){
+            document.writeln(j + '*' + i + '=' + i*j + '  ');
+        }
+        document.writeln('<br>');
+    }
+</script>
+
+</body>
+</html>

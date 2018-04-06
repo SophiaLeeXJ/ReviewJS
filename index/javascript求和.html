@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript求和</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var result = null;
+        function sumNum(){
+            for( var i=0; i<arguments.length; i++ ){
+//                alert( arguments[i] );
+                result += arguments[i];
+            }
+            return result;
+        }
+        sumNum(1,2,5,8,1);
+        alert( result ); //17
+    };
+</script>
+
+</body>
+</html>

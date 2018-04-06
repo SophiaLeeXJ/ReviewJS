@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建对象的又一种形式</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    /*var dog = {
+                name: '哈哈',
+                age: 8,
+                fn1: function(){alert( 'Hello' );},
+                fn2: function(){alert( 'World' );}
+            };
+    alert( dog.name ); //哈哈
+    document.writeln( dog.constructor ); //function Object() { [native code] }
+    dog.fn1(); //Hello
+    dog.fn2(); //World*/
+
+    var dog = { name: 'Hello' };
+    function test(){
+        alert( this.name );
+    }
+    test(); //undefined /空
+    window.test(); //undefined /空
+    test.call(dog); //==> dog.test() 弹出Hello |call后面的括号里面放的是对象名（类名）,写哪个便调用哪个对象(传统的对象充当this的角色)
+    var name = 'Elizabeth';
+    test.call(window); //Elizabeth
+    new test(); //undefined
+</script>
+
+</body>
+</html>

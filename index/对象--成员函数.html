@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>对象--成员函数</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function Person(name,age){
+            //①
+            this.name = name;
+            this.age = age;
+            //②
+            this.speak = function(){
+                alert( 'Those who sow in tears will reap a smile!' );
+            };
+            this.say = function(){
+                alert( 'Hello Elizabeth' );
+            };
+            //③
+            this.show = function(){
+                document.writeln('名字是：' + this.name + ' ' + '年龄是：' + this.age);
+            };
+            //④
+            this.count = function(){
+                var result = 0;
+                for( var i=1; i<=1000; i++ ){
+                    result += i;
+                }
+                return result;
+                document.writeln( result );
+
+            };
+            //⑤
+            this.calculate = function( n ){
+                var res = 0;
+                for( var i=0; i<=n; i++ ){
+                    res += i;
+                }
+                return res;
+            }
+        }
+
+        var person = new Person('Elizabeth',22);
+        person.show();
+        person.speak();
+        person.count();
+        document.writeln( '<br>' + 'result=' +person.count() ); //④
+        document.writeln( '<br>' + 'res=' +person.calculate(10) ); //55 ⑤
+
+
+    };
+</script>
+
+</body>
+</html>

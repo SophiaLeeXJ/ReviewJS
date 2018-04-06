@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javas面向对象编程--创建对象</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        /*//构造函数的形式
+        function Person(){}
+        var person = new Person();*/
+
+        function Person(){}
+        document.writeln( '构造函数是' + Person.constructor ); //function Function() { [native code] }
+        var person = new Person();
+        document.writeln( '构造函数是' + person.constructor ); //function Person(){
+        document.writeln( '数据类型是' + typeof person ); //object
+
+        //思考题： 如何判断一个对象实例是不是Person类型？
+        //① 方法一
+        if( person instanceof Person ){
+            alert( 'person is Person' );
+        }
+        //②方法二
+        if( person.constructor == Person ){
+            alert( 'person is Person!' );
+        }
+
+        document.writeln( '<br>' );
+
+        var age = 22;
+        document.writeln( '构造函数是' + age.constructor ); //function Number() { [native code] }
+        document.writeln( '数据类型是' + typeof age ); //number
+
+        document.writeln( '<br>' );
+
+        var name = 'Elizabeth';
+        document.writeln( '构造函数是' + name.constructor ); //function String() { [native code] }
+        document.writeln( '数据类型是' + typeof name ); //string
+
+    };
+</script>
+
+</body>
+</html>

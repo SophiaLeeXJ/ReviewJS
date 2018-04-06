@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计算一组数的阶乘</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        var n = prompt( '请输入一个整数：' );
+        n = parseInt(n);
+        var result = 0;
+        var temp = 1;
+        for( var i=1; i<=n; i++ ){
+            for( var j=1; j<=i; j++ ){
+                temp *= j;
+            }
+            result += temp;
+            temp = 1;
+        }
+        document.writeln('结果是：'+result);
+        //alert('计算的结果是：' + result);
+
+    };
+</script>
+
+</body>
+</html>

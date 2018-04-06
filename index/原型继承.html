@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型继承</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+    window.onload = function(){
+        /*function Animal(name){
+            this.name = name;
+        }
+        function Tiger(color){
+            this.color = color;
+        }
+        var tiger = new Tiger('黄色的');
+        alert(tiger.name);
+//        Tiger.prototype = new Animal('大老虎');
+        Object.prototype.name = '大老虎';
+        alert(tiger.name);
+        document.writeln( tiger.name + '是' + tiger.color + 'de' );*/
+
+        function Animal(name){
+            this.name = name;
+        }
+        function Tiger(color){
+            this.color = color;
+        }
+        Tiger.prototype = new Animal('大老虎');
+        var tiger = new Tiger('黄色');
+        console.log( tiger.name + '是' + tiger.color + 'de' );//大老虎是黄色de
+    };
+</script>
+
+</body>
+</html>

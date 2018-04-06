@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>递归</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function fn(num1){
+            if(num1>3){
+                fn( --num1 );
+            }
+            alert(num1);
+        }
+        fn(5);
+    };
+</script>
+
+</body>
+</html>

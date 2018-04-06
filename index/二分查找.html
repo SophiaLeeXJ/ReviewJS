@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>二分查找</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var arr = [1,4,6,8,90,900];
+
+        function searchNum(arr,findVal,leftIndex,rightIndex){
+
+            //防止无穷递归
+            if( leftIndex > rightIndex ){
+                document.writeln('找不到！');
+                return;
+            }
+
+            //找到中间这个数
+            var midIndex = Math.floor( (leftIndex + rightIndex) / 2 );
+            var midVal = arr[midIndex];
+
+            //比较
+            if( midVal > findVal ){
+                //在左边找
+                searchNum(arr,findVal,leftIndex,midIndex-1);
+            }else if( midVal < findVal ){
+                //在右边找
+                searchNum(arr,findVal,midIndex+1,rightIndex);
+            }else{
+                document.writeln( '找到下标为' + midIndex );
+                return;
+            }
+        }
+        //test
+        searchNum(arr,90,0,arr.length-1);
+    };
+</script>
+
+</body>
+</html>

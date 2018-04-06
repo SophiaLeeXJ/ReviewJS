@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一个事件可以被多个函数监听</title>
+</head>
+<body>
+
+<button id="btn" type="button">点我</button>
+
+<input type="text" id="text" placeholder="输入用户名"/>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        var oBtn = document.getElementById('btn');
+        function test1( eventObj ){
+            alert( 'test1' );
+        }
+        function test2( eventObj ){
+            alert( 'test2' );
+        }
+        oBtn.onclick = function(){
+            test2( this );
+            test1( this );
+        };
+        var oText = document.getElementById('text');
+        oText.onfocus = function(){
+            this.style.background = '#f0c';
+        };
+        oText.onblur = function(){
+            this.style.background = '#fc0';
+        };
+        var oBody = document.body;
+        oBody.oncontextmenu = function(){
+            alert('不要点击右键！');
+            return false;
+        };
+    };
+</script>
+
+</body>
+</html>

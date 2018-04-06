@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Object对象</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    var i = new Number(10); //等价于 var i = 10;
+    Number.prototype.add = function(a){
+        return this + a;
+    };
+    document.writeln(i.add(10).add(30) ); //10+10+30=50
+    document.writeln('<br>');
+    var b = 90;
+    document.writeln(b.add(40) ); //90+40=130
+
+    //测试
+    var i1 = new Number(10);
+    var i2 = 10;
+
+    document.writeln('<br>');
+    document.writeln( i1 == i2 ); //true
+</script>
+
+</body>
+</html>

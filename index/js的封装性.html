@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js的封装性</title>
+</head>
+<body>
+<!--
+    一、封装性
+        封装就是把抽象出来的数据和对数据的操作封装在一起，数据被保护在内部，
+        程序的其它部分只有通过被授权的操作(成员方法)，才能对数据进行操作。
+-->
+<script>
+    window.onload = function(){
+        /*function Person(name, agei, sal){
+            // 公开
+            this.name = name;
+            // 私有
+            var age = age;
+            var salary = sal;
+        }
+        var p1 = new Person('zs', 20, 10000);
+        window.alert(p1.name + p1.age); // zsundefined */
+
+        function Person(){
+            this.name="zs";
+            var age=20;
+            this.abc=function(){
+                alert("abc");
+            };
+            function abc2(){
+                window.alert("abc");
+            }
+        }
+        Person.prototype.fun1=function(){
+            window.alert(this.name);//ok  zs
+            //window.alert(age);//undefined
+            //abc2();//no ok
+            this.abc();//ok abc
+        };
+        var p1=new Person();
+        p1.fun1();
+
+    };
+</script>
+
+</body>
+</html>

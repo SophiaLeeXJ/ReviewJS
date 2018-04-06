@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>金字塔</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var n = prompt();
+        for( var i=1; i<=n; i++ ){
+            for( var j=1; j<=n-i; j++ ){
+                document.write( '&nbsp' );
+            }
+            for( var j=1; j<=2*i-1; j++ ){
+                document.write( '*' );
+            }
+            for( var j=1; j<=n-i; j++ ){
+                document.write('&nbsp');
+            }
+            document.write('<br>');
+        }
+    };
+</script>
+
+</body>
+</html>

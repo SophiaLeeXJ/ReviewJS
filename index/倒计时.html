@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+//        var timer = null;
+        function start(){
+            var iNow = new Date();
+            var iNew = new Date( 2016,11,2,10,16,10 );
+            var str = Math.floor( (iNew - iNow)/1000 );
+            var iDay = Math.floor( str/86400-30 );
+            var iHour = Math.floor( str%86400/3600 );
+            var iMin = Math.floor( str%86400%3600/60 );
+            var iSec = Math.floor( str%60 );
+
+            var time =  toTwo(iDay) + '天' + toTwo(iHour) + '时' + toTwo(iMin) + '分' + toTwo(iSec) + '秒';
+
+            var oBody = document.body;
+            oBody.innerHTML = time;
+        }
+        setInterval( start,1000 );
+
+        function toTwo( n ){
+            return n < 10 ? '0' + n : '' + n;
+        }
+//        alert( toTwo(5) );
+    };
+</script>
+
+</body>
+</html>

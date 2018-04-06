@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>设置DIV的样式</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            margin: 20px 0 0 100px;
+        }
+        .wrap h1 {
+            font-size: 26px;
+            display: inline-block;
+        }
+        #btn {
+            padding: 12px 16px;
+            border: 0;
+            background: red;
+            font-size: 18px;
+            color: #fff;
+            /*box-shadow: -10px 0 10px #000,10px 0 10px #000,0 -10px 10px #000,0 10px 10px #000; /!*左右上下*!/*/
+        }
+        #div {
+            width: 100px;
+            height: 100px;
+            border: 4px solid #000;
+            margin-top: 8px;
+        }
+        #stall {
+            width: 320px;
+            height: 240px;
+            border: 20px solid rgba(0,0,0,.2);
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -120px;
+            margin-left: -160px;
+            display: none;
+        }
+        #stall div {
+            padding: 20px;
+        }
+        #stall div p {
+            margin: 4px 0 0 0;
+        }
+        #stall div p span {
+            width: 42px;
+            height: 36px;
+            text-align: center;
+            line-height: 38px;
+            display: inline-block;
+        }
+        #stall div p span:hover {
+            cursor: pointer;
+        }
+        #stall div p:nth-of-type(1) span:nth-of-type(1) {
+            background: red;
+            border: 1px solid red;
+         }
+        #stall div p:nth-of-type(1) span:nth-of-type(2) {
+            background: yellow;
+            border: 1px solid yellow;
+        }
+        #stall div p:nth-of-type(1) span:nth-of-type(3) {
+            background: blue;
+            border: 1px solid blue;
+        }
+        #stall div p:nth-of-type(2) span,#stall div p:nth-of-type(3) span {
+            border: 1px solid #c0c0c0;
+            background: #efefef;
+            color: #847b84;
+        }
+        .stall-btn {
+            text-indent: 80px;
+        }
+        button {
+            width: 52px;
+            height: 32px;
+            background: #002952;
+            color: #fff;
+            border: 0;
+            margin-top: 20px;
+        }
+        #mask {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.4);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>请为下面的DIV设置样式：</h1>
+    <input type="button" value="点我设置" id="btn">
+    <div id="div"></div>
+    <div id="mask"></div>
+    <div id="stall">
+        <div>
+            <p>
+                请选择背景色：
+                <span>红</span>
+                <span>黄</span>
+                <span>蓝</span>
+            </p>
+            <p>
+                请选择宽(px)：
+                <span>200</span>
+                <span>300</span>
+                <span>400</span>
+            </p>
+            <p>
+                请选择高(px)：
+                <span>200</span>
+                <span>300</span>
+                <span>400</span>
+            </p>
+            <p class="stall-btn">
+                <button type="button">恢复</button>
+                <button type="button">确定</button>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    window.onload = function(){
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div');
+        var oMask = document.getElementById('mask');
+        var oStall = document.getElementById('stall');
+        var aP = document.getElementsByTagName('p');
+        var aSpan = document.getElementsByTagName('span');
+        var aButton = document.getElementsByTagName('button');
+
+        oBtn.onclick = function(){
+            oMask.style.display = 'block';
+            oStall.style.display = 'block';
+        };
+
+        var arr = ['red','yellow','blue','200','300','400'];
+        var arrH = ['','','','','','','200','300','400'];
+
+        for( var i=0; i<aSpan.length; i++ ) {
+            aSpan[i].index = i;
+            aSpan[i].onclick = function () {
+                oDiv.style.width = arr[this.index] + 'px';
+                oDiv.style.background = arr[ this.index ];
+                for( var j=0; j<arrH.length; j++ ){
+                    arrH[j].index = j;
+                    oDiv.style.height = arrH[this.index] + 'px';
+                }
+            }
+        }
+        aButton[0].onclick = function(){
+            oDiv.style.width = 100 + 'px';
+            oDiv.style.height = 100 + 'px';
+            oDiv.style.background = '';
+        };
+        aButton[1].onclick = function(){
+            oMask.style.display = 'none';
+            oStall.style.display = 'none';
+        };
+    };
+</script>
+
+</body>
+</html>

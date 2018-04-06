@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全局变量和局部变量</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+
+        //全局变量
+        /*function sayHello(){
+            str = 'Elizabeth';
+        }
+        sayHello();
+
+        function sayHi(){
+            alert( str );
+        }
+        sayHi();*/
+
+        //var声明的局部变量
+        /*function sayHello(){
+            var str = 'Anastasia';
+        }
+        sayHello();
+
+        function sayHi(){
+            alert( str ); //报错：str is not defined.
+        }
+        sayHi();*/
+
+        //变量在函数中隐式声明，但该函数未被调用
+        /*function sayHello(){
+            str = 'Alexander';
+        }
+        function sayHi(){
+            alert( str ); //报错：str is not defined.
+        }
+        sayHi();*/
+
+        //隐式声明变量的函数在调用变量的函数后面被调用
+        /*function sayHello(){
+            str = 'Alexander';
+        }
+        function sayHi(){
+            alert( str ); //报错：str is not defined.
+        }
+        sayHi();
+        sayHello();*/
+
+        //隐式声明的变量修改变量的值
+        /*var str = 'Elizabeth';
+        function sayHello(){
+            str = 'Anastasia';
+        }
+        sayHello();
+        function sayHi(){
+            alert( str );
+        }
+        sayHi();*/
+
+        /*var str = 'Elizabeth';
+        function sayHello(){
+            alert( str );
+            str = 'Anastasia';
+        }
+        sayHello(); //Elizabeth*/
+
+        //在函数小作用于里面
+        /*var str = 'Elizabeth';
+        function sayHello(){
+            alert( str );
+            var str = 'Anastasia';
+        }
+        sayHello(); //undefined*/
+
+
+
+    };
+</script>
+
+</body>
+</html>

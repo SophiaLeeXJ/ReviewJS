@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+    $(function(){
+        //验证密码框输入是否为相同字符  第一个参数为字符串，第二个参数为要对比的字符
+        function findStr( str,n ){
+            var tmp = 0;
+            for( var i=0; i<str.length; i++ ){
+                if( str.charAt(i) == n ){
+                    tmp ++;
+                }
+            }
+            return tmp;
+        }
+        var pwd1 = $('.text1');
+        var oText = document.getElementById('text');
+
+        pwd1.blur(function(){
+            var m = findStr( pwd1.val(),pwd1.val() );
+            var re_n = /[^\d]/g; //除数字之外的字符
+            var re_t = /[^a-zA-Z]/g; //除字母之外的字符
+            var re_len = /^([0-9a-zA-Z]){6,16}$/;
+            if( m == $(this).val().length ){
+                alert('密码不能全为相同字符！');
+            }else if( !re_len.test($(this).val()) ){
+                alert('新密码必须由 6-16位字母、数字组成');
+            }else if( !re_n.test($(this).val()) ){
+                alert('密码不能全为数字！');
+            }else if(!re_t.test($(this).val())){
+                alert('密码不能全为字母');
+            }else{
+                alert('密码设置成功！');
+            }
+        });
+    });
+</script>
+
+<input type="text" id="text" placeholder="请输入密码" class="text1"/>
+<!--<input type="text" placeholder="确认密码" class="text2"/>-->
+<input type="button" value="测试" class="test"/>
+
+</body>
+</html>

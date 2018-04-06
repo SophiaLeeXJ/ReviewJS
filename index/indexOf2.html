@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>保留几位小数</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        var a = 15;
+        var b = 8;
+        var result = a / b;
+        alert( typeof result ); //number
+        res = result + '';
+        alert( typeof res ); //string
+
+        var index = res.indexOf('.');
+        alert("保留两位小数后的结果是：" + res.substring(0,index+3) +'--'+ "indexOf方法");
+
+        var toFixed = result.toFixed(2); //toFixed()方法可把Number四舍五入为指定小数位数的数字
+        alert("保留两位小数后的结果是：" + toFixed +'--'+ "toFixed方法");
+    };
+</script>
+
+</body>
+</html>

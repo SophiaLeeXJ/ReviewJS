@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数传参</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        /*fnTab( 100,'px' );
+         function fnTab( a,b ){
+         alert( a + b );
+         }*/
+
+        fn2(function(a){alert( a );});
+        function fn2( fn ){
+            fn( 100 );
+        }
+    };
+</script>
+
+</body>
+</html>

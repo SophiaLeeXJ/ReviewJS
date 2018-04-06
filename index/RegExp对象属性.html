@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>RegExp对象属性</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        var oBtn = document.getElementById('btn');
+        function test(){
+            var oP = document.getElementById('p').innerHTML;
+            var re = /\d{4}/gi;
+            while( res = re.exec(oP) ){
+                alert( 'index=' + RegExp.index + 'leftContext= ' + RegExp.leftContext + 'rightContext=' + RegExp.rightContext );
+            }
+        }
+        oBtn.onclick = test;
+    };
+</script>
+
+<p id="p">1111努力生活2222，是为了我们在一起的时候1111，你喜欢的样子我都有！5555</p>
+<input type="button" id="btn" value="TEST"/>
+
+</body>
+</html>

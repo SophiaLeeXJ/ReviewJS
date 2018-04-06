@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>判断浏览器</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    if( window.XMLHttpRequest ){
+        if( window.ActiveXObject ){
+            alert( 'IE' );
+        }else{
+            alert( 'Mozilla,safari,Chrome' );
+        }
+    }else {
+        alert( 'IE6' );
+    }
+</script>
+
+</body>
+</html>

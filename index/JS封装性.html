@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS封装性</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    /*function Person(name,agei,sal){
+        this.name = name;
+        var age = agei;
+        var salary = sal;
+        //在类中如何定义公开的方法（特权方法），私有方法（内部方法）
+        //如果我们希望操作私有属性，则可用公开方法实现
+        this.show = function(){
+            document.writeln( name + '今年 ' + age + '岁 ' + '月薪资 ' + salary ); //Elizabeth今年 22岁 月薪资 7000
+        };
+        //私有方法可以访问对象属性
+        function show2(){
+            alert( name + age + ' ' + salary );
+        }
+    }
+    var person = new Person('Elizabeth',22,7000);
+    document.writeln( person.name + '<br>' ); //Elizabeth
+    person.show();
+    person.show2();*/
+
+    //prototype
+    function Person(){
+        this.name = 'Anastasia';
+        var age = 60;
+        this.abc = function(){
+            alert('努力生活，是为了在我们相遇的时候，你喜欢的样子我都有！');
+        };
+        function abc2(){
+            alert('我是私有的方法！');
+        }
+    }
+    Person.prototype.fun1 = function(){
+        alert( this.name ); //ok
+        alert( this.age ); //undefined
+        this.abc(); //努力生活，是为了在我们相遇的时候，你喜欢的样子我都有！
+        this.abc2(); //报错
+    };
+    var person = new Person();
+    person.fun1();
+</script>
+
+</body>
+</html>

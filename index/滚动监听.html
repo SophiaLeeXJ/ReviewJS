@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滚动监听</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 3000px;
+        }
+        .header {
+            height: 120px;
+            background: deeppink;
+        }
+        .content {
+            width: 1000px;
+            height: 1000px;
+            margin-left: 300px;
+            border: 1px solid #000;
+        }
+        .side {
+            width: 200px;
+            height: 500px;
+            background: lightseagreen;
+            position: fixed;
+            top: 120px;
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="header">我是头部！</div>
+    <div class="content">我是内容！</div>
+    <div class="side">我是滚动的侧边栏！</div>
+</div>
+
+<script src="../js/jquery-2.2.2.js"></script>
+<script>
+    $(function(){
+        let $content =  $('.content');
+        let $side = $('.side');
+        let contentBottomToTop = $content.outerHeight() + $content.offset().top;
+        let setSide = function() {
+            let scrollTop = $(window).scrollTop() + $(window).height();
+            let topHeight = scrollTop - contentBottomToTop;
+            if( topHeight >= 0 ) {
+                $side.css({
+                    'bottom':topHeight+'px'
+                })
+            } else {
+                $side.css({
+                    'bottom': '0px'
+                })
+            }
+        };
+
+        setSide();
+        $(window).scroll(setSide);
+    });
+</script>
+
+</body>
+</html>

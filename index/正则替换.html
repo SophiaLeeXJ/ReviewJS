@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则替换</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        var oBtn = document.getElementById('btn');
+        function test(){
+            var oP = document.getElementById('p');
+            var re = /\d{4}/gi;
+//            var re = new RegExp('\\d{4}','gi');
+            var str = oP.innerHTML.replace( re,'这里原来是四个数！' );
+            oP.innerHTML = str;
+        }
+        oBtn.onclick = test;
+    };
+</script>
+
+<p id="p">努力生活22232，是为了在我们相遇的时候4455，你喜欢的样子2222我都有！</p>
+<input type="button" value="replace" id="btn" />
+
+</body>
+</html>

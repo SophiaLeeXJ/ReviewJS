@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>带缩略图的图片轮换</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background: #333;
+        }
+        .wrap {
+            width: 460px;
+            height: 580px;
+            margin: 20px auto;
+            position: relative;
+            background: #666;
+        }
+        img {
+            width: 400px;
+            height: 500px;
+            margin: auto;
+            background: #222;
+            display: block;
+        }
+        ul li {
+            width: 20px;
+            height: 20px;
+            background: #555;
+            border-radius: 50%;
+            margin-right: 4px;
+            float: left;
+            display: block;
+            cursor: pointer;
+        }
+        .active {
+            background: #fc0;
+        }
+        p {
+            font-size: 20px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            text-indent: 30px;
+            text-shadow: 1px 1px 3px #000;
+        }
+        a {
+            text-decoration: none;
+            color: rgba(255,255,255,.6);
+            font-size: 20px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: rgba(0,0,0,.6);
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            position: absolute;
+            top: 250px;
+            font-weight: 700;
+        }
+        #prev {
+            left: 50px;
+        }
+        #next {
+            right: 50px;
+        }
+        ul {
+            height: 20px;
+            margin: 14px 0 0 185px;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+        }
+        .little {
+            width: 100px;
+            height: 60px;
+            background: #f0c;
+            position: absolute;
+            top: -68px;
+            left: 0;
+            display: none;
+        }
+        #img2 {
+            width: 100px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <p>带缩略图的图片轮换</p>
+    <a href="#" id="prev"><</a>
+    <a href="#" id="next">></a>
+    <img id="img" src="" alt="图片一">
+    <ul id="ul"></ul>
+</div>
+
+<script>
+    window.onload = function(){
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var oImg = document.getElementById('img');
+        var oUl = document.getElementById('ul');
+        var aLi = oUl.getElementsByTagName('li');
+        var aDiv = oUl.getElementsByTagName('div');
+//        var oLitt = document.getElementById('littlePic');
+
+        var arrUrl = ['../images/1.png','../images/2.png','../images/3.png','../images/4.png'];
+        var num = 0;
+//        var that = null;
+
+        for( var i=0; i<arrUrl.length; i++ ){
+            oUl.innerHTML += '<li></li>';
+        }
+        aLi[num].className = 'active';
+
+        oImg.src = arrUrl[num];
+
+        oPrev.onclick = function(){
+            num --;
+            if( num < 0 ){
+                num = arrUrl.length - 1;
+            }
+            oImg.src = arrUrl[num];
+        };
+
+        oNext.onclick = function(){
+            num ++;
+            if( num == arrUrl.length ){
+                num = 0;
+            }
+            oImg.src = arrUrl[num];
+        };
+
+        for( var i=0; i<aLi.length; i++ ){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+//                alert(this.index);
+                oImg.src = arrUrl[this.index];
+                for( var i=0; i<aLi.length; i++ ){
+                    aLi[i].className = '';
+                }
+                this.className = 'active';
+            };
+            /*aLi[i].onmouseover = function(){
+                for( var i=0; i<aLi.length; i++ ){
+                    aLi[i].innerHTML = '<div id="littPic" class="little"></div>';
+                    for( var j=0; j<aDiv.length; j++ ){
+                        aDiv[j].innerHTML = '<img src="" id="img2">';
+                        var oImg2 = document.getElementById('img2');
+
+                        aDiv[j].index = j;
+//                        that = this;
+
+                            /!*alert(that.index);
+                            oImg2.src = arrUrl[this.index];*!/
+                            oLitt.style.display = 'block';
+
+
+                    }
+                }
+            };*/
+
+
+
+
+
+        }
+
+    }
+</script>
+
+</body>
+</html>

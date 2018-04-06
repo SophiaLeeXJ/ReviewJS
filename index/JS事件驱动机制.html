@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS事件驱动机制</title>
+</head>
+<body>
+
+<p>
+    Client in the document. An alert box will alert the x and y coordinates of the mouse pointer!
+</p>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        function show_coords( event ){
+            x = event.clientX;
+            y = event.clientY;
+            alert( event + " x coords: " + x + " ,Y coords: " + y ); //[object MouseEvent] x coords: 470 ,Y coords: 27
+        }
+
+        var oBody = document.body;
+        oBody.ondblclick = function(){
+            show_coords(event);
+        };
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS内部类</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        //Math
+//        alert( Math.abs(-25) );
+        /*alert( Math.ceil(4.4) ); //5 向上取整
+        alert( Math.round(4.4) ); //4 四舍五入
+        alert( Math.floor( 4.5 ) ); //4 向下取整
+        //取18-25之间的随机数 并取整
+        alert( Math.round( Math.random()*7 + 18 ) );
+        //取10-20之间的随机数 并取整
+        alert( Math.round( Math.random()*10 +10 ) );*/
+
+
+        //Date
+        /*var myDate = new Date();
+        document.writeln( myDate.toLocaleDateString() + '<br>' ); //2016/12/17
+        document.writeln( myDate.toLocaleString() ); //2016/12/17 下午1:44:24*/
+/*
+        //Date类的常用方法
+        var myDate = new Date();
+        var myHours = myDate.getHours();
+        var myMin = myDate.getMinutes();
+        var str = toTwo(myHours) + ':' + toTwo(myMin);
+        alert( '现在时间是：' + str );
+
+        //常用方法
+        function toTwo( n ){
+            if(n > 10){
+                return n;
+            }else{
+                return '0' + n;
+            }
+        }
+        //三目运算
+        function toTwo( n ){
+            return n < 10 ? '0' + n : '' + n;
+        }
+
+        //分时间段打出问候语
+        var mySecond = myHours * 3600 + myMin * 60;
+        if( mySecond >= 6*3600 && mySecond <= 9*3600 ){
+            document.writeln( 'Good Morning!' );
+        }else if( mySecond >= (9*3600+60) && mySecond <= (11*3600+30*60) ){
+            document.writeln( '早上好！' );
+        }else if( mySecond >= (11*3600+31*60) && mySecond <= (14*360+30*60) ){
+            document.writeln('努力生活，是为了在我们相遇的时候，你喜欢的样子我都有！ Good Noon!');
+        }*/
+
+        /*//String
+        var str = '123fafja h';
+        //alert( str.length ); //10
+
+        var str2 = 'abd fd 456';
+        //alert( str2.split(' ') );
+
+        //substr与substring的区别
+        var str3 = 'abcdefgh';
+        //stringObject.substr(start,length)
+        //alert( str3.substr(1,4) ); //bcde
+        //stringObject.substring(start,stop)
+        //alert( str3.substring(1,4) ); //bcd
+
+        //charAt()
+        str4 = 'abcde';
+        //alert( str4.charAt(3) );//d 取出下标为3的单个字符
+
+        //indexOf
+//        var str5 = '15.832';
+        var str5 = 15.832;
+        str5 = str5.toString();
+        alert( str5.indexOf('.') );*/
+
+        //Number
+        var a = 12.6523658;
+        a = a.toFixed(2); //保留两位小数
+        //alert( a ); //12.65
+
+        a1 = a.toString();
+        var index = a1.indexOf('.');
+        //alert(a.substring( 0,index+3 ) ); //保留两位小数 12.65
+
+        var b = 10;
+        //要求把10的二进制显示
+        //alert( b.toString(2) ); //1010
+        //要求把10的八进制显示
+        //alert( b.toString(8) ); //12
+
+        var c = 90;
+        alert( isNaN(c) ); //false
+    };
+</script>
+
+</body>
+</html>

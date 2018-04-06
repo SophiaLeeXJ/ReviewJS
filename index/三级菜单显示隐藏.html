@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>三级菜单显示隐藏</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        .top-nav {
+            background: #ccc;
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+        }
+        .top-nav li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #000;
+            position: relative;
+        }
+        .top-nav li a {
+            color: red;
+            display: block;
+        }
+        .top-nav li:hover ul {
+            display: block;
+        }
+        .top-nav li:hover ul ul {
+            display: none;
+        }
+        .top-nav li ul {
+            position: absolute;
+            display: none;
+        }
+        .top-nav li ul li {
+            height: 40px;
+            line-height: 40px;
+            background: #000;
+            text-align: center;
+        }
+        .top-nav li ul li:hover ul {
+            display: block;
+        }
+        .top-nav li ul ul {
+            position: absolute;
+            left: 101px;
+            top: 0;
+            display: none;
+        }
+        .top-nav li a:hover {
+            background: lightseagreen;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<ul class="top-nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">课程大厅</a></li>
+    <li>
+        <a href="#">学习中心+</a>
+        <ul class="sec-nav">
+            <li>
+                <a href="#">前端开发</a>
+                <ul>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">Javascript</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">手机开发</a>
+                <ul>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">Javascript</a></li>
+                </ul>
+            </li>
+            <li><a href="#">后台编程</a></li>
+        </ul>
+    </li>
+    <li><a href="#">社交活动</a></li>
+    <li>
+        <a href="#">关于我们+</a>
+        <ul>
+            <li><a href="#">ios开发</a></li>
+            <li><a href="#">Android开发</a></li>
+            <li><a href="#">WP开发</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+</body>
+</html>

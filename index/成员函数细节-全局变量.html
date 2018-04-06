@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>成员函数细节</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    /*function abc(a,b){
+        return a + b;
+    }
+    function abc(a,b,c){
+        return a + b + c;
+    }
+    alert( abc(1,2) ); //NaN
+    alert( abc(1,2,3) ); //6*/
+
+    function abc(){
+        var s = 0;
+        for( var i=0; i<arguments.length; i++ ){
+            s += arguments[i];
+        }
+        return s;
+    }
+    alert( abc(1,2) ); //3
+    alert( abc(7,8,9) ); //24
+</script>
+
+</body>
+</html>

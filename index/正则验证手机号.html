@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则验证手机号</title>
+    <script src="../js/jquery-2.2.2.js"></script>
+</head>
+<body>
+
+<form>
+    <input type="text" class="phone" id="text">
+    <input type="button" id="btn" value="验证">
+</form>
+
+<script>
+    window.onload = function(){
+        var oText = $('.phone').val();
+        var re = /^1[34578]\d{9}$/;
+        $('#btn').click(function(){
+            alert( oText );
+            if( oText&&test(re) ){
+                alert('yes');
+            }else{
+                alert('No');
+            }
+        });
+    };
+</script>
+
+</body>
+</html>

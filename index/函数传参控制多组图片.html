@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数传参控制多组图片</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background: #333;
+        }
+        .main {
+            width: 920px;
+            margin: 20px auto;
+        }
+        .wrap {
+            width: 400px;
+            height: 500px;
+            float: left;
+            margin-right: 60px;
+            position: relative;
+        }
+        img {
+            width: 400px;
+            height: 500px;
+
+        }
+        ul {
+            position: absolute;
+            top: 0;
+            right: -38px;
+            background: #414141;
+            width: 30px;
+        }
+        .wrap li {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #222;
+            cursor: pointer;
+        }
+        span,p {
+            position: absolute;
+            left: 0;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: rgba(255,255,255,.6);
+            background: rgba(0,0,0,.6);
+        }
+        span {
+            top: 0;
+        }
+        p {
+            bottom: 0;
+        }
+        .active {
+            background: #fc0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <div id="content1" class="wrap">
+        <img src="">
+        <span class="span">数量正在加载中...</span>
+        <p class="p">图片正在加载中...</p>
+        <ul></ul>
+    </div>
+
+    <div id="content2" class="wrap">
+        <img src="">
+        <span class="span">数量正在加载中...</span>
+        <p class="p">图片正在加载中...</p>
+        <ul></ul>
+    </div>
+</div>
+
+<script>
+    window.onload = function(){
+        changeImgs('content1',['../images/1.png','../images/2.png','../images/3.png','../images/4.png'],['图片一','图片二','图片三','图片四'],'onclick');
+        changeImgs('content2',['../images/1.png','../images/3.png','../images/4.png'],['图片一','图片三','图片四'],'onmouseover');
+    };
+
+    function changeImgs(id,arrUrl,arrText,event){
+        var content = document.getElementById(id);
+        var oImg = content.getElementsByTagName('img')[0];
+        var oP = content.getElementsByTagName('p')[0];
+        var oSpan = content.getElementsByTagName('span')[0];
+        var oUl = content.getElementsByTagName('ul')[0];
+        var aLi = content.getElementsByTagName('li');
+
+        var num = 0;
+
+        for( var i=0; i<arrUrl.length; i++ ){
+            oUl.innerHTML += '<li></li>';
+        }
+
+        function fnTab(){
+            oImg.src = arrUrl[num];
+            oSpan.innerHTML = 1 + num + '/' + arrText.length;
+            oP.innerHTML = arrText[num];
+            for( var i=0; i<aLi.length; i++ ){
+                aLi[i].className = '';
+            }
+            aLi[num].className = 'active';
+        }
+        fnTab();
+
+        for( var i=0; i<aLi.length; i++ ){
+            aLi[i].index = i;
+            aLi[i][event] = function(){
+                num = this.index;
+                fnTab();
+            };
+        }
+    }
+</script>
+
+</body>
+</html>

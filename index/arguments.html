@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        fn1(1,2,5);           //实参
+        function fn1(a,b,c){ //形参
+            alert( arguments.length ); //3
+            alert( arguments[arguments.length-1] ); //5
+        }
+
+        //当函数的参数个数无法确定的时候，用arguments
+        var result = null;
+        function sumNum(){
+            for( var i=0; i<arguments.length; i++ ){
+//            alert( arguments[i] );
+                result += arguments[i];
+            }
+            return result;
+        }
+        sumNum(1,2,5,8,1);
+        alert( result ); //17
+
+    };
+</script>
+
+</body>
+</html>

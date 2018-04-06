@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript三大特性之多态</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+//        javascript多态性：一个引用类型(变量)在不同情况下的多种状态
+//        javascript本身是无态的，天生就支持多态
+
+//Master类
+        function Master( name ){
+            this.name = name;
+//          方法：给动物喂食物
+        }
+//原型法添加成员函数
+        Master.prototype.feed = function( animal,food ){
+            alert( '给' + animal.name + '喂' + food.name );
+        };
+//食物类
+        function Food( name ){
+            this.name = name;
+        }
+//鱼
+        function Fish( name ){
+            this.food = Food;
+            this.food( name );
+        }
+//骨头
+        function Bone( name ){
+            this.food = Food;
+            this.food( name );
+        }
+//动物
+        function Animal( name ){
+            this.name = name;
+        }
+//猫猫
+        function Cat( name ){
+            this.animal = Animal;
+            this.animal( name );
+        }
+//狗狗
+        function Dog( name ){
+            this.animal = Animal;
+            this.animal( name );
+        }
+
+        var cat = new Cat( '喵喵~~' );
+        var fish = new Fish( 'biubiu~' );
+        var dog = new Dog( '汪汪~~' );
+        var bone = new Bone( 'hoho~~' );
+
+//创建一个主人
+        var master = new Master();
+        master.feed( cat,fish );
+        master.feed( dog,bone );
+//多态有利于代码的维护和扩展，这里我们可以考虑，如果食物加入桃子，动物加入猴子，可以看到Master类的feed函数不需要变化。
+//多态用途在于做面向对象开发时，需要一个方法不变，但是它接收的参数类型是变化的，就可以使用多态。
+    };
+</script>
+
+</body>
+</html>

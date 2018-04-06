@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>绝对定位</title>
+    <style>
+        body,div {
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            width: 50px;
+            height: 50px;
+        }
+        .wrap {
+            width: 500px;
+            background: lightseagreen;
+            border: 1px solid #000;
+        }
+        .a {
+            background: red;
+        }
+        .b {
+            position: relative;
+            top: 50px;
+            background: deeppink;
+        }
+        .c {
+            position: absolute;
+            left: 50px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="a">a</div>
+    <div class="b">b</div>
+    <div class="c">c</div>
+</div>
+
+</body>
+</html>

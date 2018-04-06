@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS多态性</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    /*function Person(){
+     this.test1 = function(){
+     document.writeln('Person test1()'); //Person test1()
+     }
+     }
+     function Cat(){
+     this.test1 = function(){
+     document.writeln('Cat test1()'); //Cat test1()
+     }
+     }
+     var animal = new Person();
+     animal.test1();
+     animal = new Cat();
+     animal.test1();*/
+
+    function Master(){
+        //给动物喂食
+        this.feed = function(animal,food){
+            document.writeln('主人给' + animal.name + '喂' + food.name);
+        }
+    }
+    //动物类
+    function Animal(name){
+        this.name = name;
+    }
+    function Cat(name){
+        this.animal = Animal;//对象冒充
+        this.animal(name);
+    }
+    function Dog(name){
+        this.animal = Animal;
+        this.animal(name);
+    }
+    //加入动物
+    function Monkey(name){
+        this.animal = Animal;
+        this.animal(name);
+    }
+
+    //食物类
+    function Food(name){
+        this.name = name;
+    }
+    function Fish(name){
+        this.food = Food;
+        this.food(name);
+    }
+    function Bone(name){
+        this.food = Food;
+        this.food(name);
+    }
+    //加入食物
+    function Peach(name){
+        this.food = Food;
+        this.food(name);
+    }
+    var master = new Master();
+
+    var cat = new Cat('小猫猫');
+    var dog = new Dog('小狗狗');
+    var fish = new Fish('小鱼');
+    var bone = new Bone('骨头');
+    var monkey = new Monkey('小猴子');
+    var peach = new Peach('桃子');
+
+    master.feed(cat,fish);
+    master.feed(monkey,peach);
+
+
+</script>
+
+</body>
+</html>

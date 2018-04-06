@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript返回一组数中最大或最小的数</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var m = 88;
+//        var n = Number.POSITIVE_INFINITY;
+
+        function maxNum(){
+            for( var i=0; i<arguments.length; i++ ){
+                if( arguments[i] > m ){
+                    m = arguments[i];
+                }
+                return m;
+            }
+        }
+        maxNum(102);
+
+        alert(m);
+        alert("努力生活，是为了在我们相遇的时候，你喜欢的样子我都有！");
+
+    };
+</script>
+
+</body>
+</html>

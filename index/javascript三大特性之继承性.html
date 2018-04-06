@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript三大特性之继承性</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+//        middle students
+        function MidStu( name,age ){
+            this.name = name;
+            this.age = age;
+            this.show = function(){
+                alert( this.name + '年龄是' + this.age );
+            };
+            this.pay = function( fee ){
+                alert( '你的学费是' + fee*0.8 );
+            }
+        }
+//        pupil
+        function Pupil( name,age ){
+            this.name = name;
+            this.age = age;
+            this.show = function(){
+                alert( this.name + '年龄是' + this.age );
+            };
+            this.pay = function( fee ){
+                alert( '你的学费是' + fee*0.5 );
+            }
+        }
+        var mid = new MidStu( 'Elizabeth',22 );
+        mid.show();
+        mid.pay( 120 );
+        var pupil = new Pupil( 'Anastasia',8 );
+        pupil.show();
+        pupil.pay( 60 );
+    };
+</script>
+
+</body>
+</html>

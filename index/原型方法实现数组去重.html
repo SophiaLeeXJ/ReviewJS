@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型方法实现数组去重</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        Array.prototype.res = function(){
+            var ret = [];
+            for( var i=0; i<this.length; i++ ){
+                for( var j=i+1; j<this.length; j++ ){
+                    if( this[i] === this[j] ){
+                        ret.push( this.splice( j,1 ) );
+                    }
+                }
+            }
+            return ret;
+        };
+        //test
+        var arr = ['a','d','b','a','c','d'];
+        alert( arr.res() ); //a,d
+    };
+</script>
+
+</body>
+</html>

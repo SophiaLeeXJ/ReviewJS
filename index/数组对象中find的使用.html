@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组对象中find的使用</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    var arr = ['Elizabeth','Anastasia','Tiffany'];
+    Array.prototype.find = function( value ){
+        for( var i=0; i<arr.length; i++ ){
+            if( value == arr[i] ){
+                return i;
+            }
+        }
+        return -1;
+    };
+    document.writeln( 'Elizabeth 下标=' + arr.find('Elizabeth') ); //Elizabeth 下标=0
+    document.writeln( 'Anastasia 下标=' + arr.find('Anastasia') ); //Anastasia 下标=1
+    document.writeln( 'Tiffany 下标=' + arr.find('Tiffany') ); //Tiffany 下标=2
+    document.writeln( 'Steven 下标=' + arr.find('Steven') ); //Steven 下标=-1
+</script>
+
+</body>
+</html>

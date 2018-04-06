@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSsetTimeout实现高度变化的下拉菜单</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        .top-nav {
+            width: 510px;
+            height: 50px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .top-nav li {
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #3d230c;
+            float: left;
+            margin-right: 1px;
+        }
+        .top-nav li a {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #f6e5db;
+        }
+        .top-nav li a:hover {
+            background: linear-gradient(#b2f600,#6b8f00);
+            color: #3f240e;
+        }
+        .top-nav ul {
+            position: absolute;
+            display: none;
+            height: 0;
+            overflow: hidden;
+            margin-top: -12px;
+        }
+        .note {
+            background: linear-gradient(#b2f600,#6b8f00);
+            color: #3f240e;
+            display: block;
+        }
+        .corner {
+            content: '';
+            border-top: 11px solid transparent;
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 13px solid #3d230c;
+            width: 0;
+            display: block;
+            margin-left: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="top-nav">
+    <li><a href="#"><span class="note">首页</span></a></li>
+    <li><a href="#">课程大厅</a></li>
+    <li>
+        <a href="#">学习中心+</a>
+        <ul id="sec-nav">
+            <span class="corner"></span>
+            <li>
+                <a href="#">前端开发</a>
+                <ul>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">Javascript</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">手机开发</a>
+                <ul>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">jQuery</a></li>
+                    <li><a href="#">Javascript</a></li>
+                </ul>
+            </li>
+            <li><a href="#">后台编程</a></li>
+        </ul>
+    </li>
+    <li><a href="#">社交活动</a></li>
+    <li>
+        <a href="#">关于我们</a>
+        <!--<ul id="sec-nav2">
+            <li><a href="#">ios开发</a></li>
+            <li><a href="#">Android开发</a></li>
+            <li><a href="#">WP开发</a></li>
+        </ul>-->
+    </li>
+</ul>
+
+<!--<script src="../js/jquery-2.2.2.js"></script>-->
+<script>
+    window.onload = function(){
+        var Lis = document.getElementsByTagName('li');
+        for( var i=0; i<Lis.length; i++ ){
+            Lis[i].onmouseover = function(){
+                var secNav = this.getElementsByTagName('ul')[0];
+                if( secNav != undefined ){
+                    secNav.style.display = 'block';
+                    changeH( secNav.id, 1 );
+                }
+            };
+
+            Lis[i].onmouseleave = function(){
+                var secNav = this.getElementsByTagName('ul')[0];
+                if( secNav != undefined ){
+                    changeH( secNav.id, -1 );
+                }
+            };
+        }
+    };
+
+    function changeH( id,count ){
+        var ulList = document.getElementById(id);
+        var h = ulList.offsetHeight;
+        h += count;
+        if( count > 0 ){
+            if( h <= 72 ){
+                ulList.style.height = h + 'px';
+                setTimeout("changeH('"+ id +"',1)",10);
+            }else{
+                return;
+            }
+        }else{
+            if( h >= 0 ){
+                ulList.style.height = h + 'px';
+                setTimeout("changeH('"+ id +"',-1)",10);
+            }else{
+                ulList.style.display = 'none';
+                return;
+            }
+        }
+    }
+
+    /*function AddH( id ){
+        var ulList = document.getElementById(id);
+        var h = ulList.offsetHeight;
+        h += 1;
+        if( h <= 72 ){
+            ulList.style.height = h + 'px';
+            setTimeout("AddH('"+ id +"')",10);
+        }else{
+            return;
+        }
+    }
+
+    function SubH( id ){
+        var ulList = document.getElementById(id);
+        var h = ulList.offsetHeight;
+        h -= 1;
+        if( h >= 0 ){
+            ulList.style.height = h + 'px';
+            setTimeout("SubH('"+ id +"')",10);
+        }else{
+            ulList.style.display = 'none';
+            return;
+        }
+    }*/
+
+</script>
+
+</body>
+</html>

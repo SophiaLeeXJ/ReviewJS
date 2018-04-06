@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>QQ列表展示</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .wrap {
+            width: 320px;
+            margin: 0 auto;
+            border: 1px solid #222;
+        }
+        p {
+            font-size: 18px;
+            height: 30px;
+            line-height: 30px;
+            color: #000;
+            background: #ccc url(../images/ico1.gif) no-repeat 0 9px;
+            text-indent: 12px;
+            cursor: pointer;
+        }
+        p:hover {
+            /*background: #444 url(../images/ico1.gif) no-repeat 0 9px;*/
+            color: #f0c;
+        }
+        .active {
+            background: #999 url(../images/ico2.gif) no-repeat 0 9px;
+        }
+        #list ul {
+            display: none;
+        }
+        ul ul li {
+            height: 40px;
+            line-height: 40px;
+            background: #aaa url(../images/5.png) no-repeat 10px 9px;
+            /*margin: 2px;*/
+            text-indent: 38px;
+            cursor: pointer;
+        }
+        ul ul li:hover {
+            background: #888 url(../images/6.png) no-repeat 10px 9px;
+            color: #ccc;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oUl = document.getElementById('list');
+            var aUl = oUl.getElementsByTagName('ul');
+            var aP = oUl.getElementsByTagName('p');
+
+            for( var i=0; i<aP.length; i++ ){
+                aP[i].index = i;
+                aP[i].onclick = function(){
+                    if( this.className == 'active' ){
+                        aUl[this.index].style.display = 'none';
+                        this.className = '';
+                    }else{
+                        aUl[this.index].style.display = 'block';
+                        this.className = 'active';
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+
+<div class="wrap">
+    <ul id="list">
+        <li>
+            <p>我的好友</p>
+            <ul>
+                <li>Elizabeth</li>
+                <li>Anastasia</li>
+                <li>Tiffany</li>
+                <li>Steven</li>
+            </ul>
+        </li>
+        <li>
+            <p>校内朋友</p>
+            <ul>
+                <li>默默</li>
+                <li>琪琪</li>
+                <li>靖儿</li>
+                <li>风儿</li>
+            </ul>
+        </li>
+        <li>
+            <p>我的黑名单</p>
+            <ul>
+                <li>张三</li>
+                <li>李四</li>
+                <li>王五</li>
+                <li>访华</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

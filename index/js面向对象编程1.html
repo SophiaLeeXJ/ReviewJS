@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js面向对象编程1</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        //var catName = prompt( '请输入一个猫猫的名字：' );
+
+        /*if( catName == '小白' ){
+            document.writeln('小白今年3岁，白色！');
+        }else if( catName == '小花' ){
+            document.writeln('小花今年10岁，花色！');
+        }else{
+            document.writeln('猫猫很可爱！');
+        }*/
+
+        /*function smallCat(name,age,color){
+            this.name = name;
+            this.age = age;
+            this.color = color;
+
+            if( name == name ){
+                document.writeln( name + ',' + '今年' + age +'岁,' + color + '色!' );
+            }
+        }
+        //test
+        smallCat('小白',15,'白');*/
+
+        /*function smallCat(catName){
+            if( catName == '小白' ){
+                document.writeln('小白今年3岁，白色！');
+            }else if( catName == '小花' ){
+                document.writeln('小花今年10岁，花色！');
+            }else{
+                document.writeln('猫猫很可爱！');
+            }
+        }
+        //test
+        smallCat('小白');
+        smallCat('小花');*/
+
+        /*//传统方法 太麻烦
+         var cat1_name = '小白';
+         var cat1_age = 3;
+         var cat1_color = '白色';
+         document.writeln( cat1_name + '，' + '今年' + cat1_age + '岁' + '，' + cat1_color );*/
+
+        //解决方法：把猫的属性集中，创建一个新的数据类（原型对象）
+        //用面向对象的方法来解决上面的问题
+        function Cat(){}  //这里就是一个cat类
+
+        //如果这样用
+        Cat(); //函数
+        var cat1 = new Cat(); //类
+        //这时cat1就是一个对象（实例）
+        cat1.name = '小白';
+        cat1.age = 3;
+        cat1.color = '白色';
+
+        document.writeln( cat1.name + '，' + '今年' + cat1.age + '岁' + '，' + cat1.color );
+    };
+</script>
+
+</body>
+</html>

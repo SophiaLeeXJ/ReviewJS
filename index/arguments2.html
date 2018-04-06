@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>arguments</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        function fn1(a,b,c,d){ //形参
+//            alert(arguments.length); //4
+        }
+        fn1(1,5,6,8); //实参
+
+        var result = 0;
+        function count(){
+//            alert(arguments.length);
+            for(var i=0;i<arguments.length;i++){
+//                alert(arguments[i]);
+                result += arguments[i];
+            }
+            return result;
+        }
+        count(1,5);
+        alert( result );
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则验证6-16位密码</title>
+</head>
+<body>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+    $(function(){
+        function test(){
+            var re = /^([A-Za-z0-9]){6,16}$/;
+            var oText = $('.pwd').val();
+            var result = re.test( oText );
+            if( !result ){
+                alert( '请输入6-16位密码！' );
+                return false;
+            }else{
+                alert('验证通过！');
+            }
+        }
+        $('.test').click(function(){
+            test();
+        });
+
+    });
+</script>
+
+<input type="text" class="pwd" placeholder="Password"/>
+<input type="button" class="test" value="test"/>
+
+</body>
+</html>

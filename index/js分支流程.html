@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript的分支流程</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+    //JS流程控制中，分支控制包括：单分支，双分支，多分支
+
+        //单分支
+        var age = prompt('请输入自己的年龄：');
+        if(age>18){
+            document.writeln('你该为自己的行为负责！');
+        }
+        //双分支
+        /*var age = prompt('请输入你的年龄：');
+        age = parseInt(age);
+        if(age<18){
+            document.writeln('你还未到负责任的年龄！');
+        }else{
+            document.writeln('孩子，你该为自己的行为负责了!');
+        }*/
+        //多分支
+        /*var age = prompt("请输入你的年龄：");
+        age = parseInt(age);
+        if( age>18 ){
+            alert('年龄超过18岁，该对自己的行为负责！');
+        }else if(age>10 && age<18){
+            alert('你虽然还没到负责任的年龄，但还是要注意自己的行为！');
+        }else{
+            alert('小孩子嘛！');
+        }*/
+    };
+</script>
+
+</body>
+</html>

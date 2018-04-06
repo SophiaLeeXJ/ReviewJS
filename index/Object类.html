@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Object类</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    var i = new Number(10);//等价于 var i=10
+    //我们可以给类添加方法
+    Number.prototype.add = function(a){
+        return this + a;
+    };
+
+    alert(i.add(10).add(30) ); //10+10+30=50
+    var b = 90;
+    alert(b.add(40) ); //40+90=130
+</script>
+
+</body>
+</html>

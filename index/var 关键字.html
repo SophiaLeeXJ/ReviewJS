@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全局与局部</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        //在函数里，如果变量前不加var，则表示使用全局的abc变量；
+        //如果带上var，则表示在test()中定义一个新的abc变量
+        /*var abc1 = 900;
+        function test1(){
+            abc1 = 89;
+        }
+        test1();
+        alert( abc1 ); //89*/
+
+        /*var abc2 = 24;
+        function test2(){
+            var abc2 = 12;
+        }
+        test2();
+        alert( abc2 ); //24*/
+
+        /*abc3 = 50;
+        function test3(){
+            abc3 = 100;
+        }
+        test3();
+        alert( abc3 ); //100*/
+
+        abc4 = 50;
+        function test4(){
+            var abc4 = 100;
+        }
+        test4();
+        alert( abc4 ); //50
+    };
+</script>
+
+</body>
+</html>

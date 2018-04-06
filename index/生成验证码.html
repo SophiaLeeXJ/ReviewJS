@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>生成验证码</title>
+    <style>
+        body,div,input,form {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 800px;
+            height: 400px;
+            margin: 0 auto;
+            background: linear-gradient(#eee,#fff);
+        }
+        form {
+            margin-top: 26px;
+        }
+        input[type='text'] {
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        input[type='button'] {
+            width: 70px;
+            height: 38px;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <form action="##" method="post">
+        <input type="text" class="writeCode" placeholder="checkCode"/>
+        <input type="text" class="checkCode" disabled/>
+        <input type="button" class="changeCode" value="换一换"/>
+        <input type="button" class="sure_btn" value="确定"/>
+    </form>
+</div>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+//    var code;
+    function createCode(){
+        var code = '';
+        var codeLength = 6;
+        var selectChar = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',0, 1, 2, 3, 4, 5, 6, 7, 8, 9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','李','小','娟'];
+        for( var i=0; i<codeLength; i++ ){
+            var indexChar = Math.floor( Math.random()*65 );
+            code += selectChar[indexChar];
+        }
+//        alert( code );
+        $('.checkCode').val(code);
+    }
+    $(function(){
+        //页面刚加载完后显示验证码
+        createCode();
+
+        function vaildate(){
+            var $writeCode = $('.writeCode').val();
+            var $checkCode = $('.checkCode').val();
+
+            if( $writeCode == '' ){
+                alert( '验证码不能为空!' );
+                return false;
+            }else if( $writeCode != $checkCode ){
+                alert('验证码输入错误!');
+                return false;
+            }else{
+                alert('输入正确!');
+                return true;
+            }
+        }
+        $('.changeCode').click(function(){
+            createCode();
+        });
+        $('.sure_btn').click(function(){
+            vaildate();
+        });
+    });
+</script>
+
+</body>
+</html>

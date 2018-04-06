@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组验证</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        var arr = [1,2,5,8,6];
+        var arr2 = [
+            {abac:1,abc:2}
+        ];
+        function isArrayFn(value){
+            if( typeof Array.isArray === 'function' ){
+                return Array.isArray(value);
+            }else{
+                return Object.prototype.toString.call(value) === '[object Array]';
+            }
+        }
+        alert( isArrayFn(arr) );
+        alert( isArrayFn(arr2) );
+        alert( isArrayFn(6) );
+    };
+</script>
+
+</body>
+</html>

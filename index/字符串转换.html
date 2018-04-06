@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>字符串转换</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        var str = 'get-element-by-id';
+        function combo(msg){
+            var arr = msg.split('-'); //get,element,by,id
+            var len = arr.length; //将arr.length存储在一个局部变量中，可以提高for循环效率
+            for(var i=1; i<len; i++){
+                arr[i] = arr[i].charAt(0).toUpperCase()+arr[i].substring(1);//substring(1)指的是从下标为1的位置开始算起，一直截取到字符串的末尾
+            }
+            msg = arr.join('');
+            document.writeln(msg);
+        }
+        combo(str);
+//        document.writeln(str);
+    };
+</script>
+
+</body>
+</html>

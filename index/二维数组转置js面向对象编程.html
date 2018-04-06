@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>二维数组转置js面向对象编程</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var arr = [[2,6,5,9],[9,8,6,3],[6,7,3,2]];
+
+        //将旧数组打印出来
+        for( var i=0; i<arr.length; i++ ){
+            for( var j=0; j<arr[i].length; j++ ){
+                document.writeln( arr[i][j] + '&nbsp;' );
+            }
+            document.writeln( '<br>' );
+        }
+
+        document.writeln( '<br>' );
+        //定义一个新数组
+        var arr2 = [];
+//        alert(arr2.length); //0
+
+        //初始化 定下有多行
+        for( var i=0; i<arr[0].length; i++ ){
+            arr2[i] = [];
+        }
+//        alert(arr2.length); //4
+
+        //可以动态的添加数据
+        //遍历旧数组
+        for( var i=0; i<arr.length; i++ ){
+            for( var j=0; j<arr[i].length; j++ ){
+                arr2[j][i] = arr[i][j];
+            }
+        }
+
+        //成功遍历 arr2数组就是一个转置数组
+        for( var i=0; i<arr2.length; i++ ){
+            for( var j=0; j<arr2[i].length; j++ ){
+                document.writeln( arr2[i][j] +'&nbsp;' );
+            }
+            document.writeln('<br>');
+        }
+    };
+</script>
+
+</body>
+</html>

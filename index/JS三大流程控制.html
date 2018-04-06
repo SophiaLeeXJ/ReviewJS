@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS三大流程控制</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+    window.onload = function(){
+        //顺序控制: 按照自上而下的顺序执行代码
+        //分支控制：1、单分支 if(){}  2、双分支 if(){}else{}  3、多分支： if(){}else if(){}else if()...else{}   switch语句
+        //循环控制：1、for循环  2、while循环  3、do while循环
+
+        //do...while
+       /* var i = 0;
+         do{
+         document.writeln("努力生活，是为了在我们相遇的时候你喜欢的样子我都有！<br>");
+         i++
+         }while(i<10);
+         alert('ansak\'ere');//转义字符\*/
+
+        //switch
+        /*var str = prompt('请输入a-f中的任何一个字母：');
+        switch(str){
+            case 'a':
+                document.writeln("今天星期一！");
+                break;
+            case 'b':
+                document.writeln("今天星期二!");
+                break;
+            case 'c':
+                document.writeln("今天星期三！");
+                break;
+            case 'd':
+                document.writeln("今天星期四！");
+                break;
+            case 'e':
+                document.writeln("今天星期五!");
+                break;
+            case 'f':
+                document.writeln("今天周末！");
+                break;
+            default:
+                document.writeln('您的输入有误，请重新输入！')
+        }*/
+
+        //for循环
+        //请编写一个程序，可以接收一个数呢n,
+        //① 计算1+2+3+...+n的值
+        /*var num1 = prompt("请输入一个数：");
+        num = parseInt(num1);
+        var result = 0;
+
+        for(var i=1; i<=num; i++){
+            result += i;
+        }
+        document.writeln('输出的结果是：' + result);*/
+
+        //② 计算1!+2!+3!+...+n!的值
+        var num2 = prompt("请输入一个数，计算它的阶乘：");
+        num = parseInt(num2);
+
+        var result = 0;
+        var temp = 1;
+
+        for(var i=1; i<=num; i++){
+            for(var j=1; j<=i; j++){
+                temp *= j;
+            }
+            result += temp;
+            temp = 1;
+        }
+
+        document.writeln("计算结果是：" + result);
+    };
+</script>
+
+</body>
+</html>

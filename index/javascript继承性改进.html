@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>javascript继承性改进</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+//        修改如下：
+//1.把子类中共有的属性和方法抽取出，定义一个父类stu
+        function Stu( name,age ){
+            this.name = name;
+            this.age = age;
+            this.show = function(){
+                alert( this.name + '年龄是' + this.age );
+            };
+        }
+//2.通过对象冒充来继承父类的属性的方法
+        function MidStu( name,age ){
+            this.stu = Stu; //将Stu构造函数(类)，赋给MidStu的属性this.stu
+            this.stu( name,age ); //这里相当于调用Stu(name,age);完成初始化(这句话必须有，否则不能实现继承效果)
+//            接下来写MidStu自己的方法
+            this.pay = function( fee ){
+                alert( '你的学费是' + fee*0.8 );
+            }
+        }
+
+        function Pupil( name,age ){
+            this.stu = Stu;
+            this.stu( name,age );
+            this.pay = function( fee ){
+                alert( '你的学费是' + fee*0.5 );
+            }
+        }
+//        test
+        var midStu = new MidStu( '李琪',22 );
+//        midStu.show();
+        midStu.pay( 150 );
+
+        var pupil = new Pupil( '赵董',10 );
+        pupil.show();
+        pupil.pay( 120 );
+//通过apply实现。代码大部分相同，只是把上面的   Stu.call(this,name,age);   换成   Stu.apply(this,[name,age]);  就可以了。
+    };
+</script>
+
+</body>
+</html>

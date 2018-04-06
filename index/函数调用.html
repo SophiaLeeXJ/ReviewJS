@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数效用</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function test(value ){
+            alert( '您输入的是：' + value );
+//            return value;
+        }
+
+        test( '努力生活，是为了在我们相遇的时候，你喜欢的样子我都有！' );
+
+        var ie = test('hello');
+        alert(ie);
+/*
+* 以上示例会有三次弹出框：
+* 1、弹出： 您输入的是：努力生活，是为了在遇到你的时候，你喜欢的样子我都有！
+* 2、弹出： 您输入的是：hello
+* 3、undefined
+* 遇到函数，先不执行，因为尚未被调用
+* 当遇到函数调用时，才执行函数test，弹出第一个弹窗
+* 将函数赋给变量ie，并传参，又一次调用函数test，弹出第二个弹窗
+*因为函数没有返回值，所以最后一个弹窗弹出undefined
+* */
+        var myTest = test;
+        myTest('努力，不是为了让别人看到，而是为了证明自己可以！');
+    };
+</script>
+
+</body>
+</html>

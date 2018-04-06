@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>继承性</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        function Stu(name,age){
+            this.name = name;
+            this.age = age;
+            this.show = function(){
+                alert("我的名字是：" + this.name + ', ' + "今年" + this.age + '岁');
+            }
+        }
+        function MidStu(name,age){
+            //利用对象冒充来实现继承
+            this.stu = Stu;
+            this.stu(name,age);
+            this.fee = function(money){
+                alert(this.name + '的学费是' + money*0.8);
+            }
+        }
+        function Pupil(name,age){
+            //利用对象冒充来实现子类的继承
+            this.stu = Stu;
+            this.stu(name,age);
+            this.fee = function(money){
+                alert(this.name + '实际缴费' + money*0.5);
+            }
+        }
+        var stu = new Stu();
+        var middle = new MidStu('Elizabeth',22);
+        middle.show();
+        middle.fee(100);
+        var pupil = new Pupil('Tiffany',12);
+        pupil.show();
+        pupil.fee(80);
+
+    };
+</script>
+
+</body>
+</html>

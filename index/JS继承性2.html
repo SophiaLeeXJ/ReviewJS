@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS继承性</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    /*function Midstu(name,age){
+        this.name = name;
+        this.age = age;
+        this.show = function(){
+            alert( this.name + ' ' + this.age );
+        };
+        //计算学费
+        this.payFee = function(money){
+            alert(this.name + '应该交的学费是' + money*0.8);
+        }
+    }
+    function Pupil(name,age){
+        this.name = name;
+        this.age = age;
+        this.show = function(){
+            alert( this.name + ' ' + this.age );
+        };
+        //计算学费
+        this.payFee = function(money){
+            alert(this.name + '应该交的学费是' + money*0.5);
+        }
+    }*/
+    //怎么解决代码冗余问题 --> 继承
+    //抽象出一个学生类（即把中学生和小学生的共性取出）
+    function Stu(name,age){
+        this.name = name;
+        this.age = age;
+        this.show = function(){
+            document.writeln( this.name + ' ' + this.age );
+        }
+    }
+    function Midstu(name,age){
+        this.stu = Stu; //这里相当于把外面的Stu对象放在这里
+        this.stu(name,age); //JS中实际是通过对象冒充来实现继承，这句话不能少
+        //Midstu可以覆盖stu父类的show
+        this.show = function(){
+            document.writeln( this.name + ' ' + '青花烂漫，玉手难牵，笑颜醉色羁绊，许你一品江山！' );
+        }
+    }
+    function Pupil(name,age){
+        this.stu = Stu;
+        this.stu(name,age);
+    }
+    var midStu = new Midstu('Elizabeth',22);
+    midStu.show();//Elizabeth 青花烂漫，玉手难牵，笑颜醉色羁绊，许你一品江山！
+
+    var pupil = new Pupil('Steven',12);
+    pupil.show(); //Steven 12
+
+    function abc(){
+        if(arguments.length == '...'){}else if('...'){}
+    }
+
+</script>
+
+</body>
+</html>

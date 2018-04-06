@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组的拼接妤拆分</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+//split
+        var str1 = 'Elizabeth Anastasia Tiffany Steven';
+        var arr1 = str1.split(' ');
+//        alert( arr1 ); //Elizabeth, Anastasia, Tiffany, Steven
+
+        var str2 = 'Elizabeth|Anastasia|Tiffany|Steven';
+        var arr2 = str2.split('|');
+        alert( arr2 ); //Elizabeth, Anastasia, Tiffany, Steven
+
+        var str3 = 'Elizabeth|Anastasia|Tiffany|Steven';
+        var arr3 = str3.split('|',2);
+        alert( arr3 ); //Elizabeth, Anastasia, Tiffany, Steven
+
+//join
+        /*var array = ['Elizabeth','Anastasia','Tiffany','Steven'];
+        document.writeln( array + '<br><br>' );
+        alert( array.length ); //4
+        var str = array.join(); //默认是逗号做分隔符
+        document.writeln( str );
+        alert( str.length ); //34*/
+
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+/*
+    Created by Elizabeth on 21/22/2016
+*/
+.wrap {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background: lightseagreen;
+}
+#div {
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #f0c;
+}
+input {
+    padding: 4px 8px;
+}

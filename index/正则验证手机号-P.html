@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则验证手机号</title>
+</head>
+<body>
+
+<input type="button" id="btn" value="验证">
+<input type="text" id="text1" placeholder="手机号" />
+
+<script src="../js/jquery-2.2.2.js"></script>
+<script>
+    window.onload = function(){
+        var oText = $('#text1').val();
+        $('#btn').click(function(){
+            alert(oText);
+        });
+    };
+</script>
+
+</body>
+</html>

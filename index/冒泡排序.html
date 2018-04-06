@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var arr = [5,0,-56,900,12];
+        var flag = false;
+        //大的排序
+        for( var i=0; i<arr.length-1; i++ ){
+            //小的排序
+            for( var j=0; j<arr.length-1-i; j++ ){
+                if( arr[j] > arr[j+1] ){
+                    //交换
+                    var temp = arr[j];
+                    arr[j] =arr[j+1];
+                    arr[j+1] = temp;
+                    flag = true; //表示已经交换位置
+                }
+            }
+        }
+        //此处的好处是：若数组已经是一个有序数列，则无需再次排序
+        if( flag ){
+            flag = false;
+        }else{
+            flag = true;
+        }
+
+        for( var i=0; i<arr.length; i++ ){
+            document.writeln( arr[i] + '&nbsp;' );
+        }
+    };
+</script>
+
+</body>
+</html>

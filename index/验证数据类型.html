@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>验证数据类型</title>
+</head>
+<body>
+
+<!--<script>
+    function isArrayFn( o ){
+        return Object.prototype.toString.call(o) === '[object Array]';
+    }
+    var arr = [ '6','4','2','8','1' ] ;
+    alert( isArrayFn( arr ) ) ; //true
+</script>-->
+
+<script>
+    var arr = [1,2,3,1];
+    var arr2 = [{ abac : 1, abc : 2 }];
+    var str = 'Elizabeth';
+
+    function isArrayFn(value){
+        if (typeof Array.isArray === "function") {
+            return Array.isArray(value);
+        }else{
+            return Object.prototype.toString.call(value) === "[object Array]";
+        }
+    }
+    alert(isArrayFn(arr)); // true
+    alert(isArrayFn(arr2)); // true
+    alert(isArrayFn(str)); // false
+</script>
+
+</body>
+</html>

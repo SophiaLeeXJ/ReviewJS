@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟手机短信</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 500px;
+            height: 520px;
+            background: #b2f600;
+            margin: 20px auto;
+            border-radius: 6px;
+        }
+        #main-layer {
+            width: 72%;
+            height: 72%;
+            margin: 5% auto;
+            background: lightseagreen;
+            border-radius: 6px;
+            padding: 5%
+        }
+        span {
+            font-size: 18px;
+            color: red;
+            margin-left: 10%;
+        }
+        input {
+            padding: 2% 5%;
+            border-radius: 6px;
+            border: 1px solid #f5f5f7;
+        }
+        #content {
+            background: #ff99ff;
+            display: inline-block;
+            border-radius: 6px;
+            padding: 2%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div id="main-layer">
+        <p id="content"></p>
+    </div>
+    <span id="span1">Elizabeth:</span><input type="text" id="text1"> <input type="button" id="btn" value="发送">
+</div>
+
+<script>
+    window.onload = function(){
+        var mainLayer = document.getElementById('main-layer');
+        var con = document.getElementById('content');
+        var oSpan = document.getElementById('span1');
+        var oText = document.getElementById('text1');
+        var oBtn = document.getElementById('btn');
+
+        oBtn.onclick = function(){
+//            alert(oTextVal);
+            if( oText.value != '' ){
+                con.innerHTML += oSpan.innerHTML + ' ' + oText.value + '<br>';
+                oText.value = '';
+            }
+        };
+    };
+</script>
+
+</body>
+</html>

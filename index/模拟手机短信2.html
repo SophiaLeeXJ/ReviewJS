@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟手机短信2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .wrap {
+            width: 300px;
+            height: 540px;
+            margin: 28px auto;
+            background: #f1f1f1;
+            border: 2px solid #ccc;
+            border-radius: 26px;
+
+        }
+        .content {
+            width:264px;
+            height: 388px;
+            margin: 72px auto;
+            border: 2px solid #000;
+        }
+        #mainCon {
+            height: 346px;
+            background: lightseagreen;
+            overflow: auto;
+        }
+        input {
+            padding: 4px 2px;
+        }
+        img {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 24px;
+            width: 24px;
+        }
+        .myIdeas {
+            width: 200px;
+            border: 1px solid #fff;
+            float: right;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="content">
+        <div id="mainCon">
+            <!--<div class="myIdeas">哈哈</div>-->
+        </div>
+
+        <p>
+            <img src="../images/1.png" id="img">
+            <input type="text" id="text">
+            <input type="button" id="btn" value="确定">
+        </p>
+    </div>
+</div>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+    $(function(){
+        $("#btn").click(function(){
+            $('#text').focus(function(){
+                $(this).val('');
+            });
+            var $text = $('#text').val();
+            if( $text != '' ){
+                $('<div class="myIdeas">').appendTo($('#mainCon'));
+
+                $('.myIdeas').append($('#text').val());
+            }else{
+                alert('不能发送空白字段！');
+                //return false;
+            }
+
+        });
+
+        //在p元素中动态添加了一个元素
+        /*$('<input/>', {
+            id : 'clickMe',
+            type : 'button',
+            click : function(){
+                alert('努力生活，是为了我们相遇的时候，你喜欢的样子我都有！');
+            },
+            value: 'clickMe'
+        }).appendTo($('p'));*/
+
+    });
+</script>
+
+</body>
+</html>

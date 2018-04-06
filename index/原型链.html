@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+
+<script type="text/javascript" language="javascript">
+    window.onload = function(){
+        function Foo1(){
+            this.name1 = '1';
+        }
+        function Foo2(){
+            this.name2 = '2';
+        }
+        Foo2.prototype = new Foo1();
+
+        function Foo3(){
+            this.name3 = '3';
+        }
+        Foo3.prototype = new Foo2();
+        var foo = new Foo3();
+
+        console.dir( foo );
+
+        //借用构造函数继承
+        function Animal(name){
+            this.name = name;
+        }
+        function Mouse(nickname){
+            Animal.call(this,'老鼠');
+            this.nickname = nickname;
+        }
+
+        var mouse = new Mouse('杰瑞');
+        console.log( mouse.name ); //老鼠
+        console.log( mouse.nickname ); //杰瑞
+
+        //原型继承 + 借用构造函数继承 组合继承
+        function Person( name ){
+            this.name = name;
+        }
+        Person.prototype.showName = function(){
+            document.writeln( this.name );
+        };
+        function Student( name,age ){
+            Person.call( this,name );
+            this.age = age;
+        }
+
+        Student.prototype = new Person();
+        Student.prototype.constructor = Student;
+        Student.prototype.showAge = function(){
+            document.write( this.age );
+        };
+
+        //test
+        var stu = new Student( 'Elizabeth',22 );
+        stu.showName(); //Elizabeth
+        document.writeln( '<br>' );
+        stu.showAge(); //22
+
+    };
+</script>
+
+</body>
+</html>

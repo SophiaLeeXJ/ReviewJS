@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js继承性</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        function Stu(name, age){
+            this.name = name;
+            this.age = age;
+            this.show = function(){
+                window.alert(this.name + "   " + this.age);
+            }
+        }
+        function MidStu(name, age) {
+            this.stu = Stu;
+            // 通过对象冒充来实现继承的
+            // 对象冒充的意思就是获取那个类的所有成员，因为js是谁调用那个成员就是谁的，这样MidStu就有了Stu的成员了
+            this.stu(name, age);
+            /*this.payFee = function(){
+                window.alert("缴费" + money * 0.8);
+            }*/
+        }
+        function Pupil(name, age) {
+            this.stu = Stu;
+            // 通过对象冒充来实现继承的
+            this.stu(name, age);
+            this.payFee = function(){
+                window.alert("缴费" + money * 0.5);
+            }
+        }
+
+        var midStu = new MidStu("zs", 13);
+        midStu.show();
+        var pupil = new Pupil("ls", 10);
+        pupil.show();
+    };
+</script>
+
+</body>
+</html>

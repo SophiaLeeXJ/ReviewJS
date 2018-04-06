@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>访问属性的两种方式</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function Person(){}
+        var person = new Person();
+        person.name = 'Elizabeth';
+        person.age = 10;
+//        alert( person.name );
+//        alert( person['name'] );
+
+        var val = 'na' + 'me';
+//        alert( person[val] );
+
+        var p1 = person;
+        alert(p1.age );
+
+
+    };
+</script>
+
+</body>
+</html>

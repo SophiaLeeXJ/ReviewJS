@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>回调函数</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        function Dog(){
+            this.wow = function(){
+//                alert('Wow');
+            };
+            this.yelp = function(){
+                this.wow();
+            }
+        }
+
+        function MadDog(){
+            this.yelp = function(){
+                var self = this;
+                setInterval(function(){
+                    self.wow();
+                }, 500);
+            }
+        }
+        MadDog.prototype = new Dog();
+
+        //for test
+        var dog = new Dog();
+        dog.yelp();
+        var madDog = new MadDog();
+        madDog.yelp();
+    };
+</script>
+
+</body>
+</html>

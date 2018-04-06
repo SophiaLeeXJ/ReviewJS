@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js超级玛丽小游戏</title>
+    <style>
+        div,input.tr,td {
+            margin: 0;
+            padding: 0;
+        }
+        .gamediv {
+            width: 800px;
+            height: 600px;
+            background: lightseagreen;
+            margin: 10px auto;
+        }
+        .gamearea {
+            height: 400px;
+            border: 3px solid red;
+            position: relative;
+        }
+        img {
+            border-radius: 50%;
+            position: absolute;
+
+        }
+        .gamecontrol {
+            height: 160px;
+            border: 3px solid red;
+            margin-top: 30px;
+        }
+        table {
+            margin: 16px auto;
+        }
+        td {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+
+    function Mario(){
+        this.x = 0;
+        this.y = 0;
+        //移动  0→上  1→右  2→下  3→左
+        this.move = function(direct){
+            switch(direct){
+                case 0:
+                        //上移动
+                    var marioTop = document.getElementById('mario');
+                    var top = marioTop.style.top;
+                        top = parseInt(top.substring(0,top.length-2));
+                    alert(top);
+                    marioTop.style.top = top - 20 + 'px';
+                    break;
+                case 1:
+                        //右移动
+                    var marioLeft = document.getElementById('mario');
+                    var left = marioLeft.style.left;
+                        left = parseInt(left.substring(0,left.length-2));
+                    marioLeft.style.left = left + 20 + 'px';
+                    break;
+                case 2:
+                        //下移动
+                    var marioTop = document.getElementById('mario');
+                    var top = marioTop.style.top;
+                    top = parseInt(top.substring(0,top.length-2));
+                    //alert(top.substring(0,top.length-2));
+                    marioTop.style.top = top + 20 + 'px';
+                    break;
+                case 3:
+                        //左移动
+                    var marioLeft = document.getElementById('mario');
+                    var left = marioLeft.style.left;
+                    left = parseInt(left.substring(0,left.length-2));
+                    marioLeft.style.left = left - 20 + 'px';
+                    break;
+            }
+        }
+    }
+    //创建Mario对象
+    var mario = new Mario();
+    //全局函数
+    function marioMove(direct){
+        switch(direct){
+            case 0:
+                mario.move(direct);
+                break;
+            case 1:
+                mario.move(direct);
+                break;
+            case 2:
+                mario.move(direct);
+                break;
+            case 3:
+                mario.move(direct);
+                break;
+        }
+    }
+</script>
+
+<div class="gamediv">
+    <div class="gamearea">
+        <img src="../images/game2.jpg" id="mario" alt="Mario" title="Mario" style="top: 0; left: 0;" >
+    </div>
+    <div class="gamecontrol">
+        <table border="1" width="400" cellspacing="0" cellpadding="0">
+            <tr><td colspan="3" align="center">游戏控制区</td></tr>
+            <tr align="center">
+                <td></td>
+                <td><input type="button" value="Top" onclick="marioMove(0)"></td>
+                <td></td>
+            </tr>
+            <tr align="center">
+                <td><input type="button" value="Left" onclick="marioMove(3)" ></td>
+                <td></td>
+                <td><input type="button" value="Right" onclick="marioMove(1)" ></td>
+            </tr>
+            <tr align="center">
+                <td></td>
+                <td><input type="button" value="Bottom" onclick="marioMove(2)" ></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

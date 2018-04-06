@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则验证电子邮件</title>
+</head>
+<body>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+    $(function(){
+        function test(){
+            var oEmail = $('.email').val();
+            var re = /^[a-zA-Z0-9_-]+@[a-z0-9]+(\.[a-z]+)+$/;//anastasia@steven.com
+            var result = re.test( oEmail );
+
+            if( oEmail == '' ){
+                alert('请输入电子邮件！');
+            }else if( !result ){
+                alert('电子邮件格式错误！');
+            }else{
+                alert('邮件格式正确！');
+            }
+        }
+        $('.test').click(function(){
+            test();
+        });
+    });
+</script>
+
+<input type="email" class="email"/>
+<input type="button" class="test" value="验证电子邮件"/>
+
+</body>
+</html>

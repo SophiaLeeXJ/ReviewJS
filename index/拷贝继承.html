@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拷贝继承</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        var obj = {};
+        obj.extend = function(obj){
+            for( var k in obj ){
+                this[k] = obj[k];
+            }
+        }
+    };
+</script>
+
+</body>
+</html>

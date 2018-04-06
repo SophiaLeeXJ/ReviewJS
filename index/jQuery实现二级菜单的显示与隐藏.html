@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jQuery实现二级菜单的现实与隐藏</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .topNav {
+            width: 480px;
+            height: 50px;
+            line-height: 50px;
+            margin: 20px auto;
+            background: linear-gradient(#444,#111);
+            box-shadow: 1px 1px 1px #444;
+            border-radius: 6px;
+        }
+        .topNav li {
+            width: 118px;
+            border-right: 1px solid #414141;
+            float: left;
+            margin-right: 1px;
+            position: relative;
+        }
+        .topNav li a {
+            display: block;
+            text-align: center;
+            color: #ddd;
+            transition: 1s;
+        }
+        .topNav ul a:hover {
+            color: #f7f7f5;
+            background: #0186ba;
+        }
+        .topNav li ul {
+            background: linear-gradient(#444,#111);
+            display: none;
+            top: 46px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .topNav ul li {
+            box-shadow: 0 1px 0 #111,0 2px 0 #666;
+        }
+        .topNav ul li:first-child > a {
+            border-radius: 3px 3px 0 0;
+        }
+        .topNav ul li:last-child > a {
+            border-radius: 0 0 3px 3px ;
+        }
+        .topNav ul li:first-child > a:before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: 54px;
+            border-top: 6px solid transparent;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid #444;
+        }
+        .topNav ul ul {
+            position: absolute;
+            top: 0;
+            left: 126px;
+            display: none;
+        }
+        .topNav ul ul li:first-child > a:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -12px;
+            border-top: 6px solid transparent;
+            border-left: 6px solid transparent;
+            border-right: 6px solid #111;
+            border-bottom: 6px solid transparent;
+        }
+
+    </style>
+</head>
+<body>
+<ul class="topNav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">课程大厅</a>
+        <ul>
+            <li><a href="#">前端开发</a>
+                <ul>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">Javascript</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Android开发</a>
+                <ul>
+                    <li><a href="#">H</a></li>
+                    <li><a href="#">C</a></li>
+                    <li><a href="#">J</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">WP开发</a></li>
+            <li><a href="#">嵌入式开发</a>
+                <ul>
+                    <li><a href="#">f</a></li>
+                    <li><a href="#">v</a></li>
+                    <li><a href="#">w</a></li>
+                    <li><a href="#">jQuery</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">学习中心</a></li>
+    <li><a href="#">关于我们</a></li>
+</ul>
+
+<script src="../js/jquery-2.2.2.js"></script>
+<script>
+    $(function(){
+        $('.topNav li').mousemove(function(){
+            $(this).children('ul').slideDown('1000');
+        });
+        $('.topNav li').mouseleave(function(){
+            $(this).children('ul').slideUp('slow');
+        });
+    });
+</script>
+
+</body>
+</html>

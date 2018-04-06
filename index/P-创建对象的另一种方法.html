@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建对象的另一种方法</title>
+</head>
+<body>
+
+<script type="text/javascript" language="JavaScript">
+    var dog = { name: 'Hello' };
+    function test(){
+        alert(this.name);
+    }
+    test();
+    window.test();
+    test.call(dog); // Hello 相当于调用test()，同时this执行dog对象
+    new test(); //undefined
+</script>
+
+</body>
+</html>

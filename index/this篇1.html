@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>this篇1</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        /*function Person(){}
+        var person1 = new Person();
+        person1.name = 'Elizabeth';
+        person1.age = 22;
+        alert( person1.name + '今年' + person1.age );
+
+        var person2 = new Person();
+        alert( person2.name ); //undefined*/
+
+        function Person(){
+            this.name = 'Anastasia';
+            this.age = 23;
+        }
+        var person1 = new Person();
+        var person2 = new Person();
+
+        alert( person1.name + '今年' + person1.age + '了' );
+        alert( person2.name + ' ' + 'is' +' ' + person2.age + ' ' + 'years old in this year!' );
+
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js求和函数</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    window.onload = function(){
+        var result = 0;
+        function sum(){
+            for(var i=0; i<arguments.length; i++){
+                alert(arguments[i]);
+                result += arguments[i];
+            }
+            return result;
+        }
+        sum(10,20,50);
+        alert(result); //80
+    };
+</script>
+
+</body>
+</html>

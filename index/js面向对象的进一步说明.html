@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js面向对象的进一步说明</title>
+</head>
+<body>
+
+<script language="javascript" type="text/javascript">
+    function Count(num1,num2,operator){
+        if( operator == '+' ) return num1 + num2;
+        if( operator == '-' ) return num1 - num2;
+        if( operator == '*' ) return num1 * num2;
+        if( operator == '/' ) return num1 / num2;
+    }
+
+    function Person(name,age,fn){
+        this.name = name;
+        this.age = age;
+        this.abc = fn;
+    }
+    var person = new Person('Elizabeth',22,Count);
+    alert(person.name); //Elizabeth
+    alert(person.abc(20,50,'-')); //-30
+</script>
+
+</body>
+</html>

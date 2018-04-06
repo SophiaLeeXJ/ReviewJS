@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>改变字体大小</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .wrap {
+        width: 700px;
+        border: 1px solid #c0c0c0;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    button {
+        padding: 4px 16px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    #content {
+        font-size: 16px;
+    }
+    p {
+        text-indent: 26px;
+    }
+    .red {
+        color: yellow;
+        background: red;
+        border: 10px solid #ccc;
+        padding: 12px;
+    }
+    .blue {
+        color: #fff;
+        background: blue;
+        border: 10px solid red;
+        padding: 12px;
+    }
+</style>
+<body>
+
+<div class="wrap">
+    <button type="button" id="reduce">-</button>
+    <button type="button" id="add">+</button>
+    <button type="button" id="red">红</button>
+    <button type="button" id="blue">蓝</button>
+    <div id="content">
+        <p>
+            每一个小程序页面是由同路径下同名的四个不同后缀文件的组成，
+            如：index.js、index.wxml、index.wxss、index.json。
+            .js 后缀的文件是脚本文件，.json 后缀的文件是配置文件，.wxss 后缀的是样式表文件，
+            .wxml 后缀的文件是页面结构文件。
+        </p>
+        <p>
+            在这个教程里，我们有两个页面，index 页面和 logs 页面，即欢迎页和小程序启动日志的展示页，
+            他们都在 pages 目录下。微信小程序中的每一个页面的【路径+页面名】都需要写在 app.json 的 pages 中，
+            且 pages 中的第一个页面是小程序的首页。
+        </p>
+    </div>
+</div>
+
+<script>
+    window.onload = function(){
+        var Add = document.getElementById('add');
+        var Reduce = document.getElementById('reduce');
+        var Red = document.getElementById('red');
+        var Blue = document.getElementById('blue');
+        var content = document.getElementById('content');
+        var num = 16;
+
+        Add.onclick = function(){
+            if( num < 26 ){
+                num ++;
+                content.style.fontSize = num + 'px';
+            }
+        };
+        Reduce.onclick = function(){
+            if( num > 14 ){
+                num --;
+                content.style.fontSize = num + 'px';
+                alert(num);
+            }
+        };
+        Red.onclick = function(){
+            content.className = 'red';
+        };
+        Blue.onclick = function(){
+            content.className = 'blue';
+        };
+    };
+</script>
+
+</body>
+</html>

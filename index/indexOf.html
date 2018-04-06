@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>indexOf</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        var num1 = 7;
+        var num2 = 3;
+
+        var result = num1/num2;
+        alert( '此处保留两位小数是toFixed' + result.toFixed(2) );
+
+//        alert( typeof result ); //number
+        result = result + '';
+//        alert( typeof result ); //string
+
+        var index = result.indexOf('.');
+        alert( '此处保留两位小数是indexOf' + result.substring( 0,index+3 ) ); //2.33
+
+        /*var num1=7;
+        var num2=3;
+
+        var res=num1/num2;
+        res=res+"";
+        //window.alert(typeof res);
+        // alert(res);//看出 小数保留精度是17位.如果你要到第二位. 用substring方法。采用字符串截断。
+        // 把res当做一个字符串，看找到小数点在第几位.
+        var index=res.indexOf(".");
+        alert("保留小数两位是"+res.substring(0,index+3));*/
+    };
+</script>
+
+</body>
+</html>

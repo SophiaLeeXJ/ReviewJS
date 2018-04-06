@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则表达式练习 </title>
+</head>
+<body>
+
+<script src="../js/jquery-2.2.2.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+    window.onload = function(){
+        function test(){
+            var reg = /^\d{6}$/; //var reg = /^[0-9]{6}$/
+            var oText = $('.test').val();
+            var pwdOk = reg.test( oText );
+            if( !pwdOk ){
+                alert('请输入符合格式要求的密码！');
+                return false;
+            }else{
+                alert('You can pass!');
+            }
+        }
+        $('.btn').click(function(){
+            test();
+        });
+
+        var str = 'Hi~~everyone!';
+        str = str.replace( /Hi/,'Hello' );
+        alert( str ); //Hello~~everyone!
+    };
+</script>
+
+<input type="text" placeholder="Password" class="test"/>
+<input type="button" value="Test" class="btn"/>
+
+</body>
+</html>

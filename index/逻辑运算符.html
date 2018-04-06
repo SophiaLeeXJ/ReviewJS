@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>逻辑运算符</title>
+</head>
+<body>
+
+<script>
+    /*
+    * javascript的逻辑运算符有： 加、减、乘、除、取模
+    * */
+    window.onload = function(){
+        /*var a = 260;
+        var b = 16;
+        if( a>b && a++>260 ){
+            alert( 'YES' );
+        }else{
+            alert( 'NO' ); //NO
+        }
+        alert( 'a=' + a ); //a=261*/
+
+        /*var a = 260;
+        var b = 16;
+        if( a>b || a++>260 ){
+            alert( 'YES' );
+        }else{
+            alert( 'NO' ); //YES
+        }
+        alert( 'a=' + a ); //a=260*/
+
+        /*var a = 260;
+        var b = 16;
+        if( a<b || a++>260 ){
+            alert( 'YES' );
+        }else{
+            alert( 'NO' ); //NO
+        }
+        alert( 'a=' + a ); //a=261*/
+
+        /*var a = '';
+        if(!a){
+            alert('okay!');
+        }*/
+
+        /*var a = 5;
+        var b = 10;
+        var c = a || b;
+        alert( c ); //5*/
+
+        /*var a = 0;
+        var b = 15;
+        var c = a||b;
+        alert( c ); //15*/
+
+        /*var a = 0;
+         var b = null;
+         var c = false;
+         var d = a||c||b;
+         alert( d ); //false*/
+
+        /*var a = false;
+        var b = false;
+        var c = 0;
+        var d = a||b||c;
+        alert( d ); //0*/
+
+        function abc(obj){
+            var k = obj || new Object();
+            alert( k );
+        }
+        abc('hello');
+        abc();
+        //依次弹出 hello 、[object Object]
+
+    };
+</script>
+
+</body>
+</html>

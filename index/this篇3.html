@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>this指向问题</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        function Person(){
+            this.abc = function(){
+                alert( this.val ); //Anastasia
+            }
+        }
+        var person = new Person();
+        person.val = 'Anastasia';
+        person.abc();
+    };
+    /*//以下代码要想输出以下想要的结果，则必须放在window.onload = function(){};外
+    function test(){
+        alert( this.val ); //90
+    }
+    var val = 90;
+    test();*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排序</title>
+</head>
+<body>
+
+<script>
+    window.onload = function(){
+        var arr = ['f','g','a','b','d','e'];
+        arr.sort();
+        alert( arr );
+
+        var arr2 = [1,5,6,26,65,11,2];
+        arr2.sort(function(a,b){
+            return a-b; //两数相减，如果是正数，交换位置；若是负数，则不变。
+        });
+        alert( arr2 );
+
+        var arr3 = ['125px','12px','8px','26px'];
+        arr3.sort(function(a,b){
+            return parseInt(a) - parseInt(b);
+        });
+        alert( arr3 );
+
+    };
+</script>
+
+</body>
+</html>

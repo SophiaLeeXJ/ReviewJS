@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>解决浮动问题</title>
+    <style>
+        body,div {
+            padding: 0;
+            margin: 0;
+        }
+        /*body {
+            width: 800px;
+            background: #ccc;
+        }*/
+        div {
+            width: 300px;
+            height: 300px;
+        }
+        div:nth-of-type(1) {
+            background: lightseagreen;
+            float: left;
+            /*clear: both;*/
+        }
+        div:nth-of-type(2){
+            background: deeppink;
+            float: right;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div>div1</div>
+<div>div2</div>
+
+</body>
+</html>

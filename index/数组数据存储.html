@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组数据存储问题</title>
+</head>
+<body>
+
+<script language="JavaScript" type="text/javascript">
+    window.onload = function(){
+        /*var myarr = [456,90,900];
+
+        function abc(arr){
+            arr[0] = 35;
+        }
+        abc(myarr);
+        document.writeln( myarr ); //35,90,900*/
+
+        /*var myval = 900;
+
+        function abc(val){
+            val = 90;
+        }
+        abc( myval );
+        alert(myval);*/
+
+        var arr = [25,6,96];
+        alert( '数组的长度是' + arr.length ); //3
+        arr[3] = 32;
+        alert( '而此时数组的长度是' + arr.length ); //4
+        alert( arr[3] ); //32
+    };
+</script>
+
+</body>
+</html>
